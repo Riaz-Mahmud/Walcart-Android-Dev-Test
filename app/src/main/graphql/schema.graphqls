@@ -1,0 +1,5590 @@
+scalar AlphaString
+
+type AttributeSet {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  deliveries: [SetDelivery]
+
+  detailedDescriptions: [SetDetailedDescription]
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  priceAndStocks: [SetPriceAndStock]
+
+  productAttributes: [SetProductAttribute]
+
+  servicesAndDeliveries: [SetServicesAndDelivery]
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input AttributeSetCreateInput {
+  bnName: String!
+
+  deliveries: [SetDeliveryCreateInput!]!
+
+  detailedDescriptions: [SetDetailedDescriptionCreateInput!]!
+
+  enName: String!
+
+  priceAndStocks: [SetPriceAndStockCreateInput!]!
+
+  productAttributes: [SetProductAttributeCreateInput!]!
+
+  servicesAndDeliveries: [SetServicesAndDeliveryCreateInput!]!
+}
+
+input AttributeSetFilterInput {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  uid: String
+}
+
+type AttributeSetResponse implements BaseResponse {
+  message: String!
+
+  result: AttributeSet
+
+  statusCode: Int!
+}
+
+type AttributeSets {
+  attributeSets: [AttributeSet]
+
+  count: Int
+}
+
+type AttributeSetsResponse implements BaseResponse {
+  message: String!
+
+  result: AttributeSets
+
+  statusCode: Int!
+}
+
+input AttributeSetUpdateInput {
+  bnName: String
+
+  deliveries: [SetDeliveryUpdateInput]
+
+  detailedDescriptions: [SetDetailedDescriptionUpdateInput]
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  priceAndStocks: [SetPriceAndStockUpdateInput]
+
+  productAttributes: [SetProductAttributeUpdateInput]
+
+  servicesAndDeliveries: [SetServicesAndDeliveryUpdateInput]
+}
+
+type AuthenticUser {
+  deviceUuid: String
+
+  email: String
+
+  id: String
+
+  isUnAuthorized: Boolean
+
+  isVerified: Boolean
+
+  name: String
+
+  userName: String
+
+  userRole: String
+
+  userType: String
+
+  userUid: String
+}
+
+input AuthInput {
+  deviceToken: String
+
+  deviceUuid: String!
+
+  otp: String
+
+  userName: String!
+}
+
+type Authorization {
+  name: String
+
+  privileges: [Privilege]
+
+  uid: String
+
+  userRole: String
+
+  userType: String
+}
+
+type AuthorizationResponse {
+  message: String
+
+  result: Authorization
+
+  statusCode: Int
+}
+
+type AuthResponse {
+  message: String
+
+  result: AuthenticUser
+
+  statusCode: Int
+}
+
+type Avatar {
+  name: String
+
+  signedUrl: String
+
+  url: String
+}
+
+input AvatarInput {
+  name: String!
+
+  signedUrl: String
+
+  url: String!
+}
+
+type BankDetail {
+  accountName: String
+
+  accountNumber: String
+}
+
+input BankDetailCreateInput {
+  accountName: String!
+
+  accountNumber: String!
+}
+
+input BankDetailUpdateInput {
+  accountName: String
+
+  accountNumber: String
+}
+
+interface BaseResponse {
+  message: String!
+
+  statusCode: Int!
+}
+
+type BattaryCapacities {
+  battaryCapacities: [BattaryCapacity]
+
+  count: Int
+}
+
+type BattaryCapacitiesResponse implements BaseResponse {
+  message: String!
+
+  result: BattaryCapacities
+
+  statusCode: Int!
+}
+
+type BattaryCapacity {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input BattaryCapacityCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input BattaryCapacityInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type BattaryCapacityResponse implements BaseResponse {
+  message: String!
+
+  result: BattaryCapacity
+
+  statusCode: Int!
+}
+
+input BattaryCapacityUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Bluetooth {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input BluetoothCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input BluetoothInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type BluetoothResponse implements BaseResponse {
+  message: String!
+
+  result: Bluetooth
+
+  statusCode: Int!
+}
+
+type Bluetooths {
+  bluetooths: [Bluetooth]
+
+  count: Int
+}
+
+type BluetoothsResponse implements BaseResponse {
+  message: String!
+
+  result: Bluetooths
+
+  statusCode: Int!
+}
+
+input BluetoothUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Brand {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+type BrandCompatibilities {
+  brandCompatibilities: [BrandCompatibility]
+
+  count: Int
+}
+
+type BrandCompatibilitiesResponse implements BaseResponse {
+  message: String!
+
+  result: BrandCompatibilities
+
+  statusCode: Int!
+}
+
+type BrandCompatibility {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input BrandCompatibilityCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input BrandCompatibilityInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type BrandCompatibilityResponse implements BaseResponse {
+  message: String!
+
+  result: BrandCompatibility
+
+  statusCode: Int!
+}
+
+input BrandCompatibilityUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+input BrandCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input BrandInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type BrandResponse implements BaseResponse {
+  message: String!
+
+  result: Brand
+
+  statusCode: Int!
+}
+
+type Brands {
+  brands: [Brand]
+
+  count: Int
+}
+
+type BrandsResponse implements BaseResponse {
+  message: String!
+
+  result: Brands
+
+  statusCode: Int!
+}
+
+input BrandUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type CameraBack {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input CameraBackInput {
+  bnName: String
+
+  enName: String
+}
+
+input CameraBackInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type CameraBackResponse implements BaseResponse {
+  message: String!
+
+  result: CameraBack
+
+  statusCode: Int!
+}
+
+type CameraBacks {
+  cameraBacks: [CameraBack]
+
+  count: Int
+}
+
+type CameraBacksResponse implements BaseResponse {
+  message: String!
+
+  result: CameraBacks
+
+  statusCode: Int!
+}
+
+input CameraBackUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type CameraFront {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input CameraFrontInput {
+  bnName: String
+
+  enName: String
+}
+
+input CameraFrontInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type CameraFrontResponse implements BaseResponse {
+  message: String!
+
+  result: CameraFront
+
+  statusCode: Int!
+}
+
+type CameraFronts {
+  cameraFronts: [CameraFront]
+
+  count: Int
+}
+
+type CameraFrontsResponse implements BaseResponse {
+  message: String!
+
+  result: CameraFronts
+
+  statusCode: Int!
+}
+
+input CameraFrontUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Categories {
+  categories: [Category]
+
+  count: Int
+}
+
+type CategoriesResponse implements BaseResponse {
+  message: String!
+
+  result: Categories
+
+  statusCode: Int!
+}
+
+type Category {
+  attributeSetUid: String
+
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  image: Avatar
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  parent: ParentCategory
+
+  parents: [ParentCategory]
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input CategoryCreateInput {
+  attributeSetUid: String
+
+  bnName: String!
+
+  enName: String!
+
+  image: AvatarInput
+
+  parentCategoryUid: String
+}
+
+input CategoryFilterInput {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  parentCategoryUid: String
+
+  uid: String
+}
+
+type CategoryResponse implements BaseResponse {
+  message: String!
+
+  result: Category
+
+  statusCode: Int!
+}
+
+type Cellular {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input CellularCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input CellularInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type CellularResponse implements BaseResponse {
+  message: String!
+
+  result: Cellular
+
+  statusCode: Int!
+}
+
+type Cellulars {
+  cellulars: [Cellular]
+
+  count: Int
+}
+
+type CellularsResponse implements BaseResponse {
+  message: String!
+
+  result: Cellulars
+
+  statusCode: Int!
+}
+
+input CellularUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Collection {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input CollectionCreateInput {
+  bnName: String!
+
+  enName: String!
+}
+
+input CollectionFilterInput {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  uid: String
+}
+
+type CollectionResponse implements BaseResponse {
+  message: String!
+
+  result: Collection
+
+  statusCode: Int!
+}
+
+type Collections {
+  collections: [Collection]
+
+  count: Int
+}
+
+type CollectionsResponse implements BaseResponse {
+  message: String!
+
+  result: Collections
+
+  statusCode: Int!
+}
+
+input CollectionUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Color {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ColorCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input ColorInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ColorResponse implements BaseResponse {
+  message: String!
+
+  result: Color
+
+  statusCode: Int!
+}
+
+type Colors {
+  colors: [Color]
+
+  count: Int
+}
+
+type ColorsResponse implements BaseResponse {
+  message: String!
+
+  result: Colors
+
+  statusCode: Int!
+}
+
+input ColorUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Connectivities {
+  connectivities: [Connectivity]
+
+  count: Int
+}
+
+type ConnectivitiesResponse implements BaseResponse {
+  message: String!
+
+  result: Connectivities
+
+  statusCode: Int!
+}
+
+type Connectivity {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ConnectivityInput {
+  bnName: String
+
+  enName: String
+}
+
+input ConnectivityInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ConnectivityResponse implements BaseResponse {
+  message: String!
+
+  result: Connectivity
+
+  statusCode: Int!
+}
+
+type ConnectivitySpeed {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ConnectivitySpeedCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input ConnectivitySpeedInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ConnectivitySpeedResponse implements BaseResponse {
+  message: String!
+
+  result: ConnectivitySpeed
+
+  statusCode: Int!
+}
+
+type ConnectivitySpeeds {
+  connectivitySpeeds: [ConnectivitySpeed]
+
+  count: Int
+}
+
+type ConnectivitySpeedsResponse implements BaseResponse {
+  message: String!
+
+  result: ConnectivitySpeeds
+
+  statusCode: Int!
+}
+
+input ConnectivitySpeedUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+input ConnectivityUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type CreatedBy {
+  name: String
+
+  uid: String
+
+  userType: String
+}
+
+scalar DateTime
+
+enum Day {
+  FRI
+
+  MON
+
+  SAT
+
+  SUN
+
+  THU
+
+  TUE
+
+  WED
+}
+
+input DeviceInput {
+  activeNetworkType: String
+
+  appType: String
+
+  battaryCapacity: String
+
+  browser: String
+
+  browserVersion: String
+
+  deviceApiLevel: String
+
+  deviceBoard: String
+
+  deviceBrand: String
+
+  deviceId: String
+
+  deviceModel: String
+
+  deviceType: String
+
+  fingerPrint: String
+
+  hardware: String
+
+  manufacturer: String
+
+  osVersion: String
+
+  packageName: String
+
+  totalRam: String
+
+  version: String
+}
+
+type DeviceUuid {
+  deviceUuid: String!
+}
+
+type DeviceUuidResponse {
+  message: String!
+
+  result: DeviceUuid
+
+  statusCode: Int!
+}
+
+type DisplaySize {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input DisplaySizeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input DisplaySizeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type DisplaySizeResponse implements BaseResponse {
+  message: String!
+
+  result: DisplaySize
+
+  statusCode: Int!
+}
+
+type DisplaySizes {
+  count: Int
+
+  displaySizes: [DisplaySize]
+}
+
+type DisplaySizesResponse implements BaseResponse {
+  message: String!
+
+  result: DisplaySizes
+
+  statusCode: Int!
+}
+
+input DisplaySizeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+scalar Email
+
+type Families {
+  count: Int
+
+  families: [Family]
+}
+
+type FamiliesResponse implements BaseResponse {
+  message: String!
+
+  result: Families
+
+  statusCode: Int!
+}
+
+type Family {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input FamilyInput {
+  bnName: String
+
+  enName: String
+}
+
+input FamilyInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type FamilyResponse implements BaseResponse {
+  message: String!
+
+  result: Family
+
+  statusCode: Int!
+}
+
+input FamilyUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Feature {
+  actions: [FeatureAction]
+
+  createdBy: CreatedBy
+
+  id: ObjectId
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String
+
+  updatedBy: UpdatedBy
+}
+
+type FeatureAction {
+  id: ObjectId
+
+  isActive: Boolean
+
+  name: String
+
+  shortCode: String
+}
+
+input FeatureActionCreateInput {
+  isActive: Boolean
+
+  name: String!
+
+  shortCode: String!
+}
+
+input FeatureActionInput {
+  actionName: String!
+
+  featureName: String!
+}
+
+input FeatureActionUpdateInput {
+  isActive: Boolean
+
+  name: String
+
+  shortCode: String
+}
+
+input FeatureCreateInput {
+  actions: [FeatureActionCreateInput]
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String!
+}
+
+type FeatureResponse implements BaseResponse {
+  message: String!
+
+  result: Feature
+
+  statusCode: Int!
+}
+
+type Features {
+  count: Int
+
+  features: [Feature]
+}
+
+type FeaturesResponse implements BaseResponse {
+  message: String!
+
+  result: Features
+
+  statusCode: Int!
+}
+
+input FeatureUpdateInput {
+  actions: [FeatureActionUpdateInput]
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String
+}
+
+enum Gender {
+  FEMALE
+
+  MALE
+
+  OTHERS
+}
+
+type GenericLocalization {
+  bn: String
+
+  en: String
+}
+
+input GenericLocalizationCreateInput {
+  bn: String!
+
+  en: String!
+}
+
+input GenericLocalizationUpdateInput {
+  bn: String
+
+  en: String
+}
+
+type GenericReference {
+  name: GenericLocalization
+
+  uid: String
+}
+
+input GenericReferenceCreateInput {
+  name: GenericLocalizationCreateInput!
+
+  uid: String!
+}
+
+input GenericReferenceUpdateInput {
+  name: GenericLocalizationUpdateInput
+
+  uid: String
+}
+
+type HardDisk {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input HardDiskInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type HardDiskResponse implements BaseResponse {
+  message: String!
+
+  result: HardDisk
+
+  statusCode: Int!
+}
+
+type HardDisks {
+  count: Int
+
+  hardDisks: [HardDisk]
+}
+
+input HardDisksCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+type HardDisksResponse implements BaseResponse {
+  message: String!
+
+  result: HardDisks
+
+  statusCode: Int!
+}
+
+input HardDiskUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type HeadphoneFeature {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input HeadphoneFeatureCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input HeadphoneFeatureInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type HeadphoneFeatureResponse implements BaseResponse {
+  message: String!
+
+  result: HeadphoneFeature
+
+  statusCode: Int!
+}
+
+type HeadphoneFeatures {
+  count: Int
+
+  headphoneFeatures: [HeadphoneFeature]
+}
+
+type HeadphoneFeaturesResponse implements BaseResponse {
+  message: String!
+
+  result: HeadphoneFeatures
+
+  statusCode: Int!
+}
+
+input HeadphoneFeatureUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+enum HttpMethod {
+  DELETE
+
+  GET
+
+  POST
+
+  PUT
+}
+
+type InputOutputPort {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input InputOutputPortCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input InputOutputPortInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type InputOutputPortResponse implements BaseResponse {
+  message: String!
+
+  result: InputOutputPort
+
+  statusCode: Int!
+}
+
+type InputOutputPorts {
+  count: Int
+
+  inputOutputPorts: [InputOutputPort]
+}
+
+type InputOutputPortsResponse implements BaseResponse {
+  message: String!
+
+  result: InputOutputPorts
+
+  statusCode: Int!
+}
+
+input InputOutputPortUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type InputVoltage {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input InputVoltageCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input InputVoltageInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type InputVoltageResponse implements BaseResponse {
+  message: String!
+
+  result: InputVoltage
+
+  statusCode: Int!
+}
+
+type InputVoltages {
+  count: Int
+
+  inputVoltages: [InputVoltage]
+}
+
+type InputVoltagesResponse implements BaseResponse {
+  message: String!
+
+  result: InputVoltages
+
+  statusCode: Int!
+}
+
+input InputVoltageUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type IronType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input IronTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input IronTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type IronTypeResponse implements BaseResponse {
+  message: String!
+
+  result: IronType
+
+  statusCode: Int!
+}
+
+type IronTypes {
+  count: Int
+
+  ironTypes: [IronType]
+}
+
+type IronTypesResponse implements BaseResponse {
+  message: String!
+
+  result: IronTypes
+
+  statusCode: Int!
+}
+
+input IronTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Location {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input LocationCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input LocationInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type LocationResponse implements BaseResponse {
+  message: String!
+
+  result: Location
+
+  statusCode: Int!
+}
+
+type Locations {
+  count: Int
+
+  locations: [Location]
+}
+
+type LocationsResponse implements BaseResponse {
+  message: String!
+
+  result: Locations
+
+  statusCode: Int!
+}
+
+input LocationUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type MaterialType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input MaterialTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input MaterialTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type MaterialTypeResponse implements BaseResponse {
+  message: String!
+
+  result: MaterialType
+
+  statusCode: Int!
+}
+
+type MaterialTypes {
+  count: Int
+
+  materialTypes: [MaterialType]
+}
+
+type MaterialTypesResponse implements BaseResponse {
+  message: String!
+
+  result: MaterialTypes
+
+  statusCode: Int!
+}
+
+input MaterialTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Mutation {
+  addFeatureAction(action: FeatureActionCreateInput!, featureId: ObjectId!): FeatureResponse!
+
+  changeOperatorPassword(confirmPassword: String!, newPassword: String!, oldPassword: String!): SharedResponse
+
+  createAccessToken(userName: String): SharedResponse
+
+  createAttributeSet(attributeSet: AttributeSetCreateInput!): AttributeSetResponse
+
+  createBattaryCapacity(battaryCapacity: BattaryCapacityCreateInput!): BattaryCapacityResponse
+
+  createBluetooth(bluetooth: BluetoothCreateInput!): BluetoothResponse
+
+  createBrand(brand: BrandCreateInput!): BrandResponse
+
+  createBrandCompatibility(brandCompatibility: BrandCompatibilityCreateInput!): BrandCompatibilityResponse
+
+  createCameraBack(cameraBack: CameraBackInput!): CameraBackResponse
+
+  createCameraFront(cameraFront: CameraFrontInput!): CameraFrontResponse
+
+  createCategory(category: CategoryCreateInput!): CategoryResponse
+
+  createCellular(cellular: CellularCreateInput!): CellularResponse
+
+  createCollection(collection: CollectionCreateInput!): TagResponse
+
+  createColor(color: ColorCreateInput!): ColorResponse
+
+  createConnectivity(connectivity: ConnectivityInput!): ConnectivityResponse
+
+  createConnectivitySpeed(connectivitySpeed: ConnectivitySpeedCreateInput!): ConnectivitySpeedResponse
+
+  createDisplaySize(displaySize: DisplaySizeCreateInput!): DisplaySizeResponse
+
+  createFamily(family: FamilyInput!): FamilyResponse
+
+  createFeature(feature: FeatureCreateInput!): FeatureResponse!
+
+  createHardDisk(hardDisk: HardDisksCreateInput!): HardDiskResponse
+
+  createHeadphoneFeature(headphoneFeature: HeadphoneFeatureCreateInput!): HeadphoneFeatureResponse
+
+  createInputOutputPort(inputOutputPort: InputOutputPortCreateInput!): InputOutputPortResponse
+
+  createInputVoltage(inputVoltage: InputVoltageCreateInput!): InputVoltageResponse
+
+  createIronType(ironType: IronTypeCreateInput!): IronTypeResponse
+
+  createLocation(location: LocationCreateInput!): LocationResponse
+
+  createMaterialType(materialType: MaterialTypeCreateInput!): MaterialTypeResponse
+
+  createNonfrostSystem(nonfrostSystem: NonfrostSystemCreateInput!): NonfrostSystemResponse
+
+  createNumberOfEthernetPort(numberOfEthernetPort: NumberOfEthernetPortCreateInput!): NumberOfEthernetPortResponse
+
+  createNumberOfHDMIPort(numberOfHDMIPort: NumberOfHDMIPortCreateInput!): NumberOfHDMIPortResponse
+
+  createNumberOfSim(numberOfSim: NumberOfSimsCreateInput!): NumberOfSimResponse
+
+  createNumberOfUSBPort(numberOfUSBPort: NumberOfUSBPortCreateInput!): NumberOfUSBPortResponse
+
+  createOperatingSystem(operatingSystem: OperatingSystemCreateInput!): OperatingSystemResponse
+
+  createOperator(operator: OperatorCreateInput!): OperatorResponse
+
+  createPortableSpeakerFeature(portableSpeakerFeature: PortableSpeakerFeatureCreateInput!): PortableSpeakerFeatureResponse
+
+  createPrinterConnectivityType(printerConnectivityType: PrinterConnectivityTypeCreateInput!): PrinterConnectivityTypeResponse
+
+  createProcessorType(processorType: ProcessorTypeInput!): ProcessorTypeResponse
+
+  createProduct(product: ProductCreateInput!): ProductResponse
+
+  createProductAttribute(productAttribute: ProductAttributeCreateInput!): ProductAttributeResponse
+
+  createRamMemory(ramMemory: RamMemoryCreateInput!): RamMemoryResponse
+
+  createRefigeratorType(refigeratorType: RefigeratorTypeCreateInput!): RefigeratorTypeResponse
+
+  createRefreshRate(refreshRate: RefreshRateCreateInput!): RefreshRateResponse
+
+  createRgbLighting(rgbLighting: RgbLightingCreateInput!): RgbLightingResponse
+
+  createRole(role: RoleCreateInput!): RoleResponse!
+
+  createScreenSize(screenSize: ScreenSizeCreateInput!): ScreenSizeResponse
+
+  createSeller(seller: SellerCreateInput!): SellerResponse
+
+  createService(service: ServiceCreateInput!): ServiceResponse
+
+  createSmartTv(smartTv: SmartTvCreateInput!): SmartTvResponse
+
+  createStorageCapacity(storageCapacity: StorageCapacityCreateInput!): StorageCapacityResponse
+
+  createSystemMemory(systemMemory: SystemMemoryCreateInput!): SystemMemoryResponse
+
+  createTag(tag: TagCreateInput!): TagResponse
+
+  createTvReceiver(tvReceiver: TvReceiverCreateInput!): TvReceiverResponse
+
+  createTvResolution(tvResolution: TvResolutionCreateInput!): TvResolutionResponse
+
+  createTypeOfJuicer(typeOfJuicer: TypeOfJuicerCreateInput!): TypeOfJuicerResponse
+
+  createVideoCaptureResolution(videoCaptureResolution: VideoCaptureResolutionCreateInput!): VideoCaptureResolutionResponse
+
+  createWarrantyPeriod(warrantyPeriod: WarrantyPeriodCreateInput!): WarrantyPeriodResponse
+
+  createWarrantyType(warrantyType: WarrantyTypeCreateInput!): WarrantyTypeResponse
+
+  createWearingType(wearingType: WearingTypeCreateInput!): WearingTypeResponse
+
+  createWirelessConnectivity(wirelessConnectivity: WirelessConnectivityCreateInput!): WirelessConnectivityResponse
+
+  loginOperator(auth: AuthInput!, device: DeviceInput, password: String!): TokenResponse!
+
+  logoutOperator: SharedResponse
+
+  regenerateOperatorToken(deviceUuid: String, refreshToken: String!, token: String!): TokenResponse!
+
+  removeFeatureAction(actionId: ObjectId!, featureId: ObjectId!): SharedResponse!
+
+  updateAttributeSet(attributeSet: AttributeSetUpdateInput!, attributeSetUid: String!): AttributeSetResponse
+
+  updateBattaryCapacity(battaryCapacity: BattaryCapacityUpdateInput!, battaryCapacityUid: String!): BattaryCapacityResponse
+
+  updateBluetooth(bluetooth: BluetoothUpdateInput!, bluetoothUid: String!): BluetoothResponse
+
+  updateBrand(brand: BrandUpdateInput!, brandUid: String!): BrandResponse
+
+  updateBrandCompatibility(brandCompatibility: BrandCompatibilityUpdateInput!, brandCompatibilityUid: String!): BrandCompatibilityResponse
+
+  updateCameraBack(cameraBack: CameraBackUpdateInput!, cameraBackUid: String!): CameraBackResponse
+
+  updateCameraFront(cameraFront: CameraFrontUpdateInput!, cameraFrontUid: String!): CameraFrontResponse
+
+  updateCategory(category: updateCategoryCreateInput!, categoryUid: String!): CategoryResponse
+
+  updateCellular(cellular: CellularUpdateInput!, cellularUid: String!): CellularResponse
+
+  updateCollection(collection: CollectionUpdateInput!, collectionUid: String!): CollectionResponse
+
+  updateColor(color: ColorUpdateInput!, colorUid: String!): ColorResponse
+
+  updateConnectivity(connectivity: ConnectivityUpdateInput!, connectivityUid: String!): ConnectivityResponse
+
+  updateConnectivitySpeed(connectivitySpeed: ConnectivitySpeedUpdateInput!, connectivitySpeedUid: String!): ConnectivitySpeedResponse
+
+  updateDisplaySize(displaySize: DisplaySizeUpdateInput!, displaySizeUid: String!): DisplaySizeResponse
+
+  updateFamily(family: FamilyUpdateInput!, familyUid: String!): FamilyResponse
+
+  updateFeature(feature: FeatureUpdateInput!, featureId: ObjectId!): FeatureResponse!
+
+  updateFeatureAction(action: FeatureActionUpdateInput, actionId: ObjectId!, featureId: ObjectId!): FeatureResponse!
+
+  updateHardDisk(hardDisk: HardDiskUpdateInput!, hardDiskUid: String!): HardDiskResponse
+
+  updateHeadphoneFeature(headphoneFeature: HeadphoneFeatureUpdateInput!, headphoneFeatureUid: String!): HeadphoneFeatureResponse
+
+  updateInputOutputPort(inputOutputPort: InputOutputPortUpdateInput!, inputOutputPortUid: String!): InputOutputPortResponse
+
+  updateInputVoltage(inputVoltage: InputVoltageUpdateInput!, inputVoltageUid: String!): InputVoltageResponse
+
+  updateIronType(ironType: IronTypeUpdateInput!, ironTypeUid: String!): IronTypeResponse
+
+  updateLocation(location: LocationUpdateInput!, locationUid: String!): LocationResponse
+
+  updateMaterialType(materialType: MaterialTypeUpdateInput!, materialTypeUid: String!): MaterialTypeResponse
+
+  updateNonfrostSystem(nonfrostSystem: NonfrostSystemUpdateInput!, nonfrostSystemUid: String!): NonfrostSystemResponse
+
+  updateNumberOfEthernetPort(numberOfEthernetPort: NumberOfEthernetPortUpdateInput!, numberOfEthernetPortUid: String!): NumberOfEthernetPortResponse
+
+  updateNumberOfHDMIPort(numberOfHDMIPort: NumberOfHDMIPortUpdateInput!, numberOfHDMIPortUid: String!): NumberOfHDMIPortResponse
+
+  updateNumberOfSim(numberOfSim: NumberOfSimsUpdateInput!, numberOfSimUid: String!): NumberOfSimResponse
+
+  updateNumberOfUSBPort(numberOfUSBPort: NumberOfUSBPortUpdateInput!, numberOfUSBPortUid: String!): NumberOfUSBPortResponse
+
+  updateOperatingSystem(operatingSystem: OperatingSystemUpdateInput!, operatingSystemUid: String!): OperatingSystemResponse
+
+  updateOperator(operator: OperatorUpdateInput!, operatorUid: String!): OperatorResponse
+
+  updateOperatorProfile(operator: OperatorUpdateProfileInput!): OperatorResponse
+
+  updateOperatorsRole(role: OperatoCreaterRole!): SharedResponse
+
+  updateOperatorsRoles: SharedResponse
+
+  updatePortableSpeakerFeature(portableSpeakerFeature: PortableSpeakerFeatureUpdateInput!, portableSpeakerFeatureUid: String!): PortableSpeakerFeatureResponse
+
+  updatePrinterConnectivityType(printerConnectivityType: PrinterConnectivityTypeUpdateInput!, printerConnectivityTypeUid: String!): PrinterConnectivityTypeResponse
+
+  updateProcessorType(processorType: ProcessorTypeUpdateInput!, processorTypeUid: String!): ProcessorTypeResponse
+
+  updateProduct(product: ProductUpdateInput!, productUid: String!): ProductResponse
+
+  updateProductAttribute(productAttribute: ProductAttributeUpdateInput, productAttributeUid: String!): ProductAttributeResponse
+
+  updateRamMemory(ramMemory: RamMemoryUpdateInput!, ramMemoryUid: String!): RamMemoryResponse
+
+  updateRefigeratorType(refigeratorType: RefigeratorTypeUpdateInput!, refigeratorTypeUid: String!): RefigeratorTypeResponse
+
+  updateRefreshRate(refreshRate: RefreshRateUpdateInput!, refreshRateUid: String!): RefreshRateResponse
+
+  updateRgbLighting(rgbLighting: RgbLightingUpdateInput!, rgbLightingUid: String!): RgbLightingResponse
+
+  updateRole(role: RoleUpdateInput!, roleUid: ObjectId!): RoleResponse!
+
+  updateScreenSize(screenSize: ScreenSizeUpdateInput!, screenSizeUid: String!): ScreenSizeResponse
+
+  updateSeller(seller: SellerUpdateInput!, sellerUid: String!): SellerResponse
+
+  updateService(service: ServiceUpdateInput!, serviceUid: String!): ServiceResponse
+
+  updateSmartTv(smartTv: SmartTvUpdateInput!, smartTvUid: String!): SmartTvResponse
+
+  updateStorageCapacity(storageCapacity: StorageCapacityUpdateInput!, storageCapacityUid: String!): StorageCapacityResponse
+
+  updateSystemMemory(systemMemory: SystemMemoryUpdateInput!, systemMemoryUid: String!): SystemMemoryResponse
+
+  updateTag(tag: TagUpdateInput!, tagUid: String!): TagResponse
+
+  updateTvReceiver(tvReceiver: TvReceiverUpdateInput!, tvReceiverUid: String!): TvReceiverResponse
+
+  updateTvResolution(tvResolution: TvResolutionUpdateInput!, tvResolutionUid: String!): TvResolutionResponse
+
+  updateTypeOfJuicer(typeOfJuicer: TypeOfJuicerUpdateInput!, typeOfJuicerUid: String!): TypeOfJuicerResponse
+
+  updateVideoCaptureResolution(videoCaptureResolution: VideoCaptureResolutionUpdateInput!, videoCaptureResolutionUid: String!): VideoCaptureResolutionResponse
+
+  updateWarrantyPeriod(warrantyPeriod: WarrantyPeriodUpdateInput!, warrantyPeriodUid: String!): WarrantyPeriodResponse
+
+  updateWarrantyType(warrantyType: WarrantyTypeUpdateInput!, warrantyTypeUid: String!): WarrantyTypeResponse
+
+  updateWearingType(wearingType: WearingTypeUpdateInput!, wearingTypeUid: String!): WearingTypeResponse
+
+  updateWirelessConnectivity(wirelessConnectivity: WirelessConnectivityUpdateInput!, wirelessConnectivityUid: String!): WirelessConnectivityResponse
+}
+
+type NonfrostSystem {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input NonfrostSystemCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input NonfrostSystemInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type NonfrostSystemResponse implements BaseResponse {
+  message: String!
+
+  result: NonfrostSystem
+
+  statusCode: Int!
+}
+
+type NonfrostSystems {
+  count: Int
+
+  nonfrostSystems: [NonfrostSystem]
+}
+
+type NonfrostSystemsResponse implements BaseResponse {
+  message: String!
+
+  result: NonfrostSystems
+
+  statusCode: Int!
+}
+
+input NonfrostSystemUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type NumberOfEthernetPort {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input NumberOfEthernetPortCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input NumberOfEthernetPortInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type NumberOfEthernetPortResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfEthernetPort
+
+  statusCode: Int!
+}
+
+type NumberOfEthernetPorts {
+  count: Int
+
+  numberOfEthernetPorts: [NumberOfEthernetPort]
+}
+
+type NumberOfEthernetPortsResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfEthernetPorts
+
+  statusCode: Int!
+}
+
+input NumberOfEthernetPortUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type NumberOfHDMIPort {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input NumberOfHDMIPortCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input NumberOfHDMIPortInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type NumberOfHDMIPortResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfHDMIPort
+
+  statusCode: Int!
+}
+
+type NumberOfHDMIPorts {
+  count: Int
+
+  numberOfHDMIPorts: [NumberOfHDMIPort]
+}
+
+type NumberOfHDMIPortsResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfHDMIPorts
+
+  statusCode: Int!
+}
+
+input NumberOfHDMIPortUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type NumberOfSim {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+type NumberOfSimResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfSim
+
+  statusCode: Int!
+}
+
+type NumberOfSims {
+  count: Int
+
+  numberOfSims: [NumberOfSim]
+}
+
+input NumberOfSimsCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input NumberOfSimsInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type NumberOfSimsResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfSims
+
+  statusCode: Int!
+}
+
+input NumberOfSimsUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type NumberOfUSBPort {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input NumberOfUSBPortCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input NumberOfUSBPortInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type NumberOfUSBPortResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfUSBPort
+
+  statusCode: Int!
+}
+
+type NumberOfUSBPorts {
+  count: Int
+
+  numberOfUSBPorts: [NumberOfUSBPort]
+}
+
+type NumberOfUSBPortsResponse implements BaseResponse {
+  message: String!
+
+  result: NumberOfUSBPorts
+
+  statusCode: Int!
+}
+
+input NumberOfUSBPortUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+scalar ObjectId
+
+type OperatingSystem {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input OperatingSystemCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+type OperatingSystemResponse implements BaseResponse {
+  message: String!
+
+  result: OperatingSystem
+
+  statusCode: Int!
+}
+
+type OperatingSystems {
+  count: Int
+
+  operatingSystems: [OperatingSystem]
+}
+
+type OperatingSystemsResponse implements BaseResponse {
+  message: String!
+
+  result: OperatingSystems
+
+  statusCode: Int!
+}
+
+input OperatingSystemUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+input OperatoContactCreateInput {
+  countryCode: String
+
+  email: String!
+
+  phone: String
+
+  secondaryEmail: String
+}
+
+input OperatoContactUpdateInput {
+  countryCode: String
+
+  email: String!
+
+  phone: String
+
+  secondaryEmail: String
+}
+
+input OperatoCreaterRole {
+  _id: String
+
+  createdAt: DateTime
+
+  isActive: Boolean
+
+  name: String!
+
+  privileges: [OperatorPrivilegeCreateInput!]!
+
+  uid: String
+
+  updatedAt: DateTime
+
+  userType: String
+}
+
+type Operator {
+  contact: OperatorContact
+
+  createdAt: String
+
+  createdBy: CreatedBy
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  isDeleted: Boolean
+
+  isVerified: Boolean
+
+  meta: OperatorMeta
+
+  password: String
+
+  role: OperatorRole
+
+  uid: String
+
+  updatedAt: String
+
+  updatedBy: UpdatedBy
+
+  userName: String
+
+  userType: String
+}
+
+type OperatorContact {
+  countryCode: String
+
+  email: String
+
+  phone: String
+
+  secondaryEmail: String
+}
+
+input OperatorContactInputFilter {
+  email: String
+}
+
+input OperatorCreateInput {
+  contact: OperatoContactCreateInput!
+
+  meta: OperatorMetaCreateInput!
+
+  password: String!
+
+  roleUid: String!
+
+  userName: String!
+}
+
+input OperatorInputFilter {
+  contact: OperatorContactInputFilter
+
+  uid: String
+
+  userName: String
+}
+
+type OperatorMeta {
+  avatar: Avatar
+
+  firstName: String
+
+  lastName: String
+}
+
+input OperatorMetaCreateInput {
+  avatar: AvatarInput
+
+  firstName: String!
+
+  lastName: String!
+}
+
+input OperatorMetaUpdateInput {
+  avatar: AvatarInput
+
+  firstName: String
+
+  lastName: String
+}
+
+type OperatorPrivilege {
+  action: OperatorPrivilegeAction
+
+  feature: OperatorPrivilegeFeature
+}
+
+type OperatorPrivilegeAction {
+  name: String
+
+  shortCode: String
+
+  uid: String
+}
+
+input OperatorPrivilegeActionCreateInput {
+  _id: String
+
+  name: String
+
+  shortCode: String
+
+  uid: String
+}
+
+input OperatorPrivilegeCreateInput {
+  _id: String
+
+  action: OperatorPrivilegeActionCreateInput!
+
+  feature: OperatorPrivilegeFeatureCreateInput!
+}
+
+type OperatorPrivilegeFeature {
+  name: String
+
+  uid: String
+}
+
+input OperatorPrivilegeFeatureCreateInput {
+  _id: String
+
+  name: String
+
+  uid: String
+}
+
+type OperatorResponse {
+  message: String!
+
+  result: Operator
+
+  statusCode: Int!
+}
+
+type OperatorRole {
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String
+
+  privileges: [OperatorPrivilege]
+
+  uid: String
+
+  userType: String
+}
+
+type Operators {
+  count: Int
+
+  operators: [Operator]
+}
+
+type OperatorsResponse {
+  message: String!
+
+  result: Operators
+
+  statusCode: Int!
+}
+
+input OperatorUpdateInput {
+  contact: OperatoContactUpdateInput
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  meta: OperatorMetaUpdateInput
+
+  password: String
+
+  roleUid: String
+
+  userName: String
+}
+
+input OperatorUpdateProfileInput {
+  contact: OperatoContactUpdateInput
+
+  meta: OperatorMetaUpdateInput
+}
+
+input PaginationInput {
+  limit: Int = 10
+
+  skip: Int = 0
+}
+
+type ParentCategory {
+  bnName: String
+
+  enName: String
+
+  uid: String
+}
+
+scalar PhoneCountryCode
+
+scalar PhoneNumber
+
+enum PlatformType {
+  B2B
+
+  B2C
+
+  B2E
+}
+
+scalar Point
+
+type PortableSpeakerFeature {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input PortableSpeakerFeatureCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input PortableSpeakerFeatureInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type PortableSpeakerFeatureResponse implements BaseResponse {
+  message: String!
+
+  result: PortableSpeakerFeature
+
+  statusCode: Int!
+}
+
+type PortableSpeakerFeatures {
+  count: Int
+
+  portableSpeakerFeatures: [PortableSpeakerFeature]
+}
+
+type PortableSpeakerFeaturesResponse implements BaseResponse {
+  message: String!
+
+  result: PortableSpeakerFeatures
+
+  statusCode: Int!
+}
+
+input PortableSpeakerFeatureUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type PrinterConnectivityType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input PrinterConnectivityTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input PrinterConnectivityTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type PrinterConnectivityTypeResponse implements BaseResponse {
+  message: String!
+
+  result: PrinterConnectivityType
+
+  statusCode: Int!
+}
+
+type PrinterConnectivityTypes {
+  count: Int
+
+  printerConnectivityTypes: [PrinterConnectivityType]
+}
+
+type PrinterConnectivityTypesResponse implements BaseResponse {
+  message: String!
+
+  result: PrinterConnectivityTypes
+
+  statusCode: Int!
+}
+
+input PrinterConnectivityTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Privilege {
+  action: PrivilegesAction
+
+  feature: PrivilegesFeature
+}
+
+type PrivilegesAction {
+  name: String
+
+  shortCode: String
+
+  uid: String
+}
+
+type PrivilegesFeature {
+  name: String
+
+  uid: String
+}
+
+type ProcessorType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ProcessorTypeInput {
+  bnName: String
+
+  enName: String
+}
+
+input ProcessorTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ProcessorTypeResponse implements BaseResponse {
+  message: String!
+
+  result: ProcessorType
+
+  statusCode: Int!
+}
+
+type ProcessorTypes {
+  count: Int
+
+  processorTypes: [ProcessorType]
+}
+
+type ProcessorTypesResponse implements BaseResponse {
+  message: String!
+
+  result: ProcessorTypes
+
+  statusCode: Int!
+}
+
+input ProcessorTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Product {
+  bnName: String
+
+  categoryUid: String
+
+  collections: [ProductCollection]
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  deliveries: [ProductDelivery]
+
+  detailedDescriptions: [ProductDetailedDescription]
+
+  enName: String
+
+  images: [Avatar]
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  priceAndStocks: [ProductPriceAndStock]
+
+  productAttributes: [ProductProductAttribute]
+
+  searchMeta: ProductSearchMeta
+
+  serviceAndDeliveries: [ProductServiceAndDelivery]
+
+  tags: [ProductTag]
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+
+  variants: [ProductVariant]
+
+  videoUrl: String
+}
+
+type ProductAttribute {
+  bnLabel: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enLabel: String
+
+  inActiveNote: String
+
+  inputType: String
+
+  isActive: Boolean
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ProductAttributeCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inActiveNote: String
+
+  inputType: String
+
+  isActive: Boolean
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String!
+}
+
+input ProductAttributeFilterInput {
+  bnLabel: String
+
+  enLabel: String
+
+  isActive: Boolean
+
+  uid: String
+}
+
+type ProductAttributeResponse implements BaseResponse {
+  message: String!
+
+  result: ProductAttribute
+
+  statusCode: Int!
+}
+
+type ProductAttributes {
+  count: Int
+
+  productAttributes: [ProductAttribute]
+}
+
+type ProductAttributesResponse implements BaseResponse {
+  message: String!
+
+  result: ProductAttributes
+
+  statusCode: Int!
+}
+
+input ProductAttributeUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inActiveNote: String
+
+  inputType: String
+
+  isActive: Boolean
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+}
+
+type ProductCollection {
+  bnName: String
+
+  enName: String
+
+  uid: String
+}
+
+input ProductCollectionCreateInput {
+  bnName: String!
+
+  enName: String!
+
+  uid: String!
+}
+
+input ProductCreateInput {
+  bnName: String!
+
+  categoryUid: String!
+
+  collections: [ProductCollectionCreateInput!]!
+
+  deliveries: [ProductDeliveryCreateInput!]!
+
+  detailedDescriptions: [ProductDetailedDescriptionCreateInput!]!
+
+  enName: String!
+
+  images: [AvatarInput!]!
+
+  priceAndStocks: [ProductPriceAndStockCreateInput!]!
+
+  productAttributes: [ProductProductAttributeCreateInput!]!
+
+  searchMeta: ProductSearchMetaCreateInput!
+
+  serviceAndDeliveries: [ProductServiceAndDeliveryCreateInput!]!
+
+  tags: [ProductTagCreateInput!]!
+
+  variants: [ProductVariantCreateInput!]!
+
+  videoUrl: String!
+}
+
+type ProductDelivery {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  values: [ProductValue]
+}
+
+input ProductDeliveryCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String
+
+  uid: String!
+
+  values: [ProductValueInput]
+}
+
+type ProductDetailedDescription {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  values: [ProductValue]
+}
+
+input ProductDetailedDescriptionCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String
+
+  uid: String!
+
+  values: [ProductValueInput]
+}
+
+input ProductFilterInput {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  uid: String
+}
+
+type ProductPriceAndStock {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  values: [ProductValue]
+}
+
+input ProductPriceAndStockCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String
+
+  uid: String!
+
+  values: [ProductValueInput]
+}
+
+type ProductProductAttribute {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  values: [ProductValue]
+}
+
+input ProductProductAttributeCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String
+
+  uid: String!
+
+  values: [ProductValueInput]
+}
+
+type ProductResponse implements BaseResponse {
+  message: String!
+
+  result: Product
+
+  statusCode: Int!
+}
+
+type Products {
+  count: Int
+
+  products: [Product]
+}
+
+type ProductSearchMeta {
+  description: String
+
+  keyword: String
+
+  title: String
+}
+
+input ProductSearchMetaCreateInput {
+  description: String
+
+  keyword: String
+
+  title: String!
+}
+
+input ProductSearchMetaUpdateInput {
+  description: String
+
+  keyword: String
+
+  title: String!
+}
+
+type ProductServiceAndDelivery {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+
+  values: [ProductValue]
+}
+
+input ProductServiceAndDeliveryCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String
+
+  uid: String!
+
+  values: [ProductValueInput]
+}
+
+type ProductsResponse implements BaseResponse {
+  message: String!
+
+  result: Products
+
+  statusCode: Int!
+}
+
+type ProductTag {
+  bnName: String
+
+  enName: String
+
+  uid: String
+}
+
+input ProductTagCreateInput {
+  bnName: String!
+
+  enName: String!
+
+  uid: String!
+}
+
+input ProductUpdateInput {
+  bnName: String
+
+  collections: [ProductCollectionCreateInput!]
+
+  deliveries: [ProductDeliveryCreateInput!]
+
+  detailedDescriptions: [ProductDetailedDescriptionCreateInput!]
+
+  enName: String
+
+  images: [AvatarInput!]
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  priceAndStocks: [ProductPriceAndStockCreateInput!]
+
+  productAttributes: [ProductProductAttributeCreateInput!]
+
+  searchMeta: ProductSearchMetaUpdateInput
+
+  serviceAndDeliveries: [ProductServiceAndDeliveryCreateInput!]
+
+  tags: [ProductTagCreateInput!]
+
+  variants: [ProductVariantCreateInput!]
+
+  videoUrl: String
+}
+
+type ProductValue {
+  bnName: String
+
+  enName: String
+}
+
+input ProductValueInput {
+  bnName: String!
+
+  enName: String!
+}
+
+type ProductVariant {
+  colorFamily: String
+
+  images: [Avatar]
+
+  isAvailable: Boolean
+
+  price: Float
+
+  quantity: Int
+
+  sellerSKU: String
+
+  size: Int
+
+  specialPrice: Float
+}
+
+input ProductVariantCreateInput {
+  colorFamily: String!
+
+  images: [AvatarInput]
+
+  isAvailable: Boolean
+
+  price: Float!
+
+  quantity: Int!
+
+  sellerSKU: String!
+
+  size: Int!
+
+  specialPrice: Float!
+}
+
+type Query {
+  getAttributeSets(filter: AttributeSetFilterInput, pagination: PaginationInput): AttributeSetsResponse
+
+  getAuthorizations: AuthorizationResponse
+
+  getBattaryCapacities(filter: BattaryCapacityInputFilter, pagination: PaginationInput): BattaryCapacitiesResponse
+
+  getBluetooths(filter: BluetoothInputFilter, pagination: PaginationInput): BluetoothsResponse
+
+  getBrandCompatibilities(filter: BrandCompatibilityInputFilter, pagination: PaginationInput): BrandCompatibilitiesResponse
+
+  getBrands(filter: BrandInputFilter, pagination: PaginationInput): BrandsResponse
+
+  getCameraBacks(filter: CameraBackInputFilter, pagination: PaginationInput): CameraBacksResponse
+
+  getCameraFronts(filter: CameraFrontInputFilter, pagination: PaginationInput): CameraFrontsResponse
+
+  getCategories(filter: CategoryFilterInput, pagination: PaginationInput): CategoriesResponse
+
+  getCellulars(filter: CellularInputFilter, pagination: PaginationInput): CellularsResponse
+
+  getCollections(filter: CollectionFilterInput, pagination: PaginationInput): CollectionsResponse
+
+  getColors(filter: ColorInputFilter, pagination: PaginationInput): ColorsResponse
+
+  getConnectivities(filter: ConnectivityInputFilter, pagination: PaginationInput): ConnectivitiesResponse
+
+  getConnectivitySpeeds(filter: ConnectivitySpeedInputFilter, pagination: PaginationInput): ConnectivitySpeedsResponse
+
+  getDeviceUuid: DeviceUuidResponse
+
+  getDisplaySizes(filter: DisplaySizeInputFilter, pagination: PaginationInput): DisplaySizesResponse
+
+  getFamilies(filter: FamilyInputFilter, pagination: PaginationInput): FamiliesResponse
+
+  getFeatures(pagination: PaginationInput): FeaturesResponse!
+
+  getHardDisks(filter: HardDiskInputFilter, pagination: PaginationInput): HardDisksResponse
+
+  getHeadphoneFeatures(filter: HeadphoneFeatureInputFilter, pagination: PaginationInput): HeadphoneFeaturesResponse
+
+  getInputOutputPorts(filter: InputOutputPortInputFilter, pagination: PaginationInput): InputOutputPortsResponse
+
+  getInputVoltages(filter: InputVoltageInputFilter, pagination: PaginationInput): InputVoltagesResponse
+
+  getIronTypes(filter: IronTypeInputFilter, pagination: PaginationInput): IronTypesResponse
+
+  getLocations(filter: LocationInputFilter, pagination: PaginationInput): LocationsResponse
+
+  getMaterialTypes(filter: MaterialTypeInputFilter, pagination: PaginationInput): MaterialTypesResponse
+
+  getNonfrostSystems(filter: NonfrostSystemInputFilter, pagination: PaginationInput): NonfrostSystemsResponse
+
+  getNumberOfEthernetPorts(filter: NumberOfEthernetPortInputFilter, pagination: PaginationInput): NumberOfEthernetPortsResponse
+
+  getNumberOfHDMIPorts(filter: NumberOfHDMIPortInputFilter, pagination: PaginationInput): NumberOfHDMIPortsResponse
+
+  getNumberOfSims(filter: NumberOfSimsInputFilter, pagination: PaginationInput): NumberOfSimsResponse
+
+  getNumberOfUSBPorts(filter: NumberOfUSBPortInputFilter, pagination: PaginationInput): NumberOfUSBPortsResponse
+
+  getOperatingSystems(filter: LocationInputFilter, pagination: PaginationInput): OperatingSystemsResponse
+
+  getOperatorProfile: OperatorResponse
+
+  getOperators(filter: OperatorInputFilter, pagination: PaginationInput): OperatorsResponse
+
+  getOperatorsForSystem(filter: OperatorInputFilter): OperatorsResponse
+
+  getPortableSpeakerFeatures(filter: PortableSpeakerFeatureInputFilter, pagination: PaginationInput): PortableSpeakerFeaturesResponse
+
+  getPrinterConnectivityTypes(filter: PrinterConnectivityTypeInputFilter, pagination: PaginationInput): PrinterConnectivityTypesResponse
+
+  getProcessorTypes(filter: ProcessorTypeInputFilter, pagination: PaginationInput): ProcessorTypesResponse
+
+  getProductAttributes(filter: ProductAttributeFilterInput, pagination: PaginationInput): ProductAttributesResponse
+
+  getProducts(filter: ProductFilterInput, pagination: PaginationInput): ProductsResponse
+
+  getRamMemories(filter: RamMemoryInputFilter, pagination: PaginationInput): RamMemoriesResponse
+
+  getRefigeratorTypes(filter: RefigeratorTypeInputFilter, pagination: PaginationInput): RefigeratorTypesResponse
+
+  getRefreshRates(filter: RefreshRateInputFilter, pagination: PaginationInput): RefreshRatesResponse
+
+  getRgbLightings(filter: RgbLightingInputFilter, pagination: PaginationInput): RgbLightingsResponse
+
+  getRoles(filter: RoleFilterInput, pagination: PaginationInput): RolesResponse!
+
+  getScreenSizes(filter: ScreenSizeInputFilter, pagination: PaginationInput): ScreenSizesResponse
+
+  getSellers(filter: SellerFilterInput, pagination: PaginationInput): SellersResponse
+
+  getServices(filter: ServiceInputFilter, pagination: PaginationInput): ServicesResponse
+
+  getSmartTvs(filter: SmartTvInputFilter, pagination: PaginationInput): SmartTvsResponse
+
+  getStorageCapacities(filter: StorageCapacityInputFilter, pagination: PaginationInput): StorageCapacitiesResponse
+
+  getSystemMemories(filter: SystemMemoryInputFilter, pagination: PaginationInput): SystemMemoriesResponse
+
+  getTags(filter: TagFilterInput, pagination: PaginationInput): TagsResponse
+
+  getTvReceivers(filter: TvReceiverInputFilter, pagination: PaginationInput): TvReceiversResponse
+
+  getTvResolutions(filter: TvResolutionInputFilter, pagination: PaginationInput): TvResolutionsResponse
+
+  getTypeOfJuicers(filter: TypeOfJuicerInputFilter, pagination: PaginationInput): TypeOfJuicersResponse
+
+  getUploadSignedUrl(ext: String!, isPrivate: Boolean): UploadResponse
+
+  getUploadSignedUrlForSystem(ext: String!, isPrivate: Boolean): UploadResponse
+
+  getVideoCaptureResolutions(filter: VideoCaptureResolutionInputFilter, pagination: PaginationInput): VideoCaptureResolutionsResponse
+
+  getWarrantyPeriods(filter: WarrantyPeriodInputFilter, pagination: PaginationInput): WarrantyPeriodsResponse
+
+  getWarrantyTypes(filter: WarrantyTypeInputFilter, pagination: PaginationInput): WarrantyTypesResponse
+
+  getWearingTypes(filter: WearingTypeInputFilter, pagination: PaginationInput): WearingTypesResponse
+
+  getWirelessConnectivities(filter: WirelessConnectivityInputFilter, pagination: PaginationInput): WirelessConnectivitiesResponse
+
+  isAuthenticClient(appKey: String!, appSecret: String!): SharedResponse
+
+  isAuthorized(authorization: FeatureActionInput!, token: String!): AuthResponse!
+}
+
+type RamMemories {
+  count: Int
+
+  ramMemories: [RamMemory]
+}
+
+type RamMemoriesResponse implements BaseResponse {
+  message: String!
+
+  result: RamMemories
+
+  statusCode: Int!
+}
+
+type RamMemory {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input RamMemoryCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input RamMemoryInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type RamMemoryResponse implements BaseResponse {
+  message: String!
+
+  result: RamMemory
+
+  statusCode: Int!
+}
+
+input RamMemoryUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type RefigeratorType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input RefigeratorTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input RefigeratorTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type RefigeratorTypeResponse implements BaseResponse {
+  message: String!
+
+  result: RefigeratorType
+
+  statusCode: Int!
+}
+
+type RefigeratorTypes {
+  count: Int
+
+  refigeratorTypes: [RefigeratorType]
+}
+
+type RefigeratorTypesResponse implements BaseResponse {
+  message: String!
+
+  result: RefigeratorTypes
+
+  statusCode: Int!
+}
+
+input RefigeratorTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type RefreshRate {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input RefreshRateCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input RefreshRateInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type RefreshRateResponse implements BaseResponse {
+  message: String!
+
+  result: RefreshRate
+
+  statusCode: Int!
+}
+
+type RefreshRates {
+  count: Int
+
+  refreshRates: [RefreshRate]
+}
+
+type RefreshRatesResponse implements BaseResponse {
+  message: String!
+
+  result: RefreshRates
+
+  statusCode: Int!
+}
+
+input RefreshRateUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type RgbLighting {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input RgbLightingCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input RgbLightingInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type RgbLightingResponse implements BaseResponse {
+  message: String!
+
+  result: RgbLighting
+
+  statusCode: Int!
+}
+
+type RgbLightings {
+  count: Int
+
+  rgbLightings: [RgbLighting]
+}
+
+type RgbLightingsResponse implements BaseResponse {
+  message: String!
+
+  result: RgbLightings
+
+  statusCode: Int!
+}
+
+input RgbLightingUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Role {
+  createdBy: CreatedBy
+
+  id: ObjectId
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String
+
+  privileges: [RolePrivilege]
+
+  uid: String
+
+  updatedBy: UpdatedBy
+
+  userType: UserType
+}
+
+input RoleCreateInput {
+  actionShortCodes: [String]!
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String!
+}
+
+input RoleFilterInput {
+  name: String
+
+  uid: String
+
+  userType: UserType
+}
+
+type RolePrivilege {
+  action: RolePrivilegeAction
+
+  feature: RolePrivilegeFeature
+}
+
+type RolePrivilegeAction {
+  name: String
+
+  shortCode: String
+
+  uid: String
+}
+
+type RolePrivilegeFeature {
+  name: String
+
+  uid: String
+}
+
+type RoleResponse implements BaseResponse {
+  message: String!
+
+  result: Role
+
+  statusCode: Int!
+}
+
+type Roles {
+  count: Int
+
+  roles: [Role]
+}
+
+type RolesResponse implements BaseResponse {
+  message: String!
+
+  result: Roles
+
+  statusCode: Int!
+}
+
+input RoleUpdateInput {
+  actionShortCodes: [ObjectId]
+
+  exceptShortCodes: [ObjectId]
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  name: String
+}
+
+type ScreenSize {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ScreenSizeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input ScreenSizeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ScreenSizeResponse implements BaseResponse {
+  message: String!
+
+  result: ScreenSize
+
+  statusCode: Int!
+}
+
+type ScreenSizes {
+  count: Int
+
+  screenSizes: [ScreenSize]
+}
+
+type ScreenSizesResponse implements BaseResponse {
+  message: String!
+
+  result: ScreenSizes
+
+  statusCode: Int!
+}
+
+input ScreenSizeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Seller {
+  accountType: String
+
+  address: String
+
+  bankDetail: BankDetail
+
+  binNumber: String
+
+  bnName: String
+
+  businessNature: String
+
+  chequeNumber: String
+
+  contact: SellerContact
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  deliveryMethod: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  nid: String
+
+  paymentMode: String
+
+  paymentReceiveMethod: String
+
+  tinNumber: String
+
+  tradeLicense: String
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+
+  webSiteUrl: String
+}
+
+type SellerContact {
+  account: SellerContactBusiness
+
+  business: SellerContactBusiness
+}
+
+type SellerContactBusiness {
+  countryCode: String
+
+  email: Email
+
+  name: String
+
+  phone: PhoneNumber
+}
+
+input SellerContactBusinessCreateInput {
+  countryCode: String!
+
+  email: Email!
+
+  name: String!
+
+  phone: PhoneNumber!
+}
+
+input SellerContactBusinessUpdateInput {
+  countryCode: String
+
+  email: Email
+
+  name: String
+
+  phone: PhoneNumber
+}
+
+input SellerContactCreateInput {
+  account: SellerContactBusinessCreateInput!
+
+  business: SellerContactBusinessCreateInput!
+}
+
+input SellerContactUpdateInput {
+  account: SellerContactBusinessUpdateInput
+}
+
+input SellerCreateInput {
+  accountType: String!
+
+  address: String!
+
+  bankDetail: BankDetailCreateInput
+
+  binNumber: String
+
+  bnName: String!
+
+  businessNature: String
+
+  chequeNumber: String
+
+  contact: SellerContactCreateInput!
+
+  deliveryMethod: String
+
+  enName: String!
+
+  nid: String!
+
+  paymentMode: String
+
+  paymentReceiveMethod: String
+
+  tinNumber: String
+
+  tradeLicense: String!
+
+  webSiteUrl: String!
+}
+
+input SellerFilterInput {
+  uid: String
+}
+
+type SellerResponse implements BaseResponse {
+  message: String!
+
+  result: Seller
+
+  statusCode: Int!
+}
+
+type Sellers {
+  count: Int
+
+  sellers: [Seller]
+}
+
+type SellersResponse implements BaseResponse {
+  message: String!
+
+  result: Sellers
+
+  statusCode: Int!
+}
+
+input SellerUpdateInput {
+  accountType: String
+
+  address: String
+
+  bankDetail: BankDetailUpdateInput
+
+  binNumber: String
+
+  bnName: String
+
+  businessNature: String
+
+  chequeNumber: String
+
+  contact: SellerContactUpdateInput
+
+  deliveryMethod: String
+
+  enName: String
+
+  nid: String
+
+  paymentMode: String
+
+  paymentReceiveMethod: String
+
+  tinNumber: String
+
+  tradeLicense: String
+
+  webSiteUrl: String
+}
+
+type Service {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input ServiceCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input ServiceInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type ServiceResponse implements BaseResponse {
+  message: String!
+
+  result: Service
+
+  statusCode: Int!
+}
+
+type Services {
+  count: Int
+
+  services: [Service]
+}
+
+type ServicesResponse implements BaseResponse {
+  message: String!
+
+  result: Services
+
+  statusCode: Int!
+}
+
+input ServiceUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type SetDelivery {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+input SetDeliveryCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String!
+
+  uid: String
+}
+
+input SetDeliveryUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+type SetDetailedDescription {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+input SetDetailedDescriptionCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String!
+
+  uid: String
+}
+
+input SetDetailedDescriptionUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+type SetPriceAndStock {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+input SetPriceAndStockCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String!
+
+  uid: String
+}
+
+input SetPriceAndStockUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+type SetProductAttribute {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+input SetProductAttributeCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String!
+
+  uid: String
+}
+
+input SetProductAttributeUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+type SetServicesAndDelivery {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+input SetServicesAndDeliveryCreateInput {
+  bnLabel: String!
+
+  enLabel: String!
+
+  inputType: String!
+
+  isRequired: Boolean!
+
+  isSearchAble: Boolean!
+
+  queryName: String!
+
+  uid: String
+}
+
+input SetServicesAndDeliveryUpdateInput {
+  bnLabel: String
+
+  enLabel: String
+
+  inputType: String
+
+  isRequired: Boolean
+
+  isSearchAble: Boolean
+
+  queryName: String
+
+  uid: String
+}
+
+type SharedCreateId {
+  id: ObjectId
+}
+
+type SharedResponse implements BaseResponse {
+  message: String!
+
+  result: SharedCreateId
+
+  statusCode: Int!
+}
+
+scalar ShortDate
+
+type SmartTv {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input SmartTvCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input SmartTvInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type SmartTvResponse implements BaseResponse {
+  message: String!
+
+  result: SmartTv
+
+  statusCode: Int!
+}
+
+type SmartTvs {
+  count: Int
+
+  smartTvs: [SmartTv]
+}
+
+type SmartTvsResponse implements BaseResponse {
+  message: String!
+
+  result: SmartTvs
+
+  statusCode: Int!
+}
+
+input SmartTvUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type SMTPSetting {
+  emailPassword: String
+
+  fromEmailAddress: String
+
+  isActive: Boolean
+
+  isSSLEnable: Boolean
+
+  smtpPort: Int
+
+  smtpServerUrl: String
+
+  userName: String
+}
+
+input SMTPSettingCreateInput {
+  emailPassword: String!
+
+  fromEmailAddress: String!
+
+  isActive: Boolean
+
+  isSSLEnable: Boolean!
+
+  smtpPort: Int!
+
+  smtpServerUrl: String!
+
+  userName: String!
+}
+
+input SMTPSettingUpdateInput {
+  emailPassword: String
+
+  fromEmailAddress: String
+
+  isActive: Boolean
+
+  isSSLEnable: Boolean
+
+  smtpPort: Int
+
+  smtpServerUrl: String
+
+  userName: String
+}
+
+type StorageCapacities {
+  count: Int
+
+  storageCapacities: [StorageCapacity]
+}
+
+type StorageCapacitiesResponse implements BaseResponse {
+  message: String!
+
+  result: StorageCapacities
+
+  statusCode: Int!
+}
+
+type StorageCapacity {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input StorageCapacityCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input StorageCapacityInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type StorageCapacityResponse implements BaseResponse {
+  message: String!
+
+  result: StorageCapacity
+
+  statusCode: Int!
+}
+
+input StorageCapacityUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type SystemMemories {
+  count: Int
+
+  systemMemories: [SystemMemory]
+}
+
+type SystemMemoriesResponse implements BaseResponse {
+  message: String!
+
+  result: SystemMemories
+
+  statusCode: Int!
+}
+
+type SystemMemory {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input SystemMemoryCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input SystemMemoryInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type SystemMemoryResponse implements BaseResponse {
+  message: String!
+
+  result: SystemMemory
+
+  statusCode: Int!
+}
+
+input SystemMemoryUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type Tag {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input TagCreateInput {
+  bnName: String!
+
+  enName: String!
+}
+
+input TagFilterInput {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  uid: String
+}
+
+type TagResponse implements BaseResponse {
+  message: String!
+
+  result: Tag
+
+  statusCode: Int!
+}
+
+type Tags {
+  count: Int
+
+  tags: [Tag]
+}
+
+type TagsResponse implements BaseResponse {
+  message: String!
+
+  result: Tags
+
+  statusCode: Int!
+}
+
+input TagUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+scalar Time
+
+type Token {
+  expiresAt: String
+
+  refreshToken: String
+
+  token: String
+}
+
+type TokenResponse {
+  message: String!
+
+  result: Token
+
+  statusCode: Int!
+}
+
+type TvReceiver {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input TvReceiverCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input TvReceiverInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type TvReceiverResponse implements BaseResponse {
+  message: String!
+
+  result: TvReceiver
+
+  statusCode: Int!
+}
+
+type TvReceivers {
+  count: Int
+
+  tvReceivers: [TvReceiver]
+}
+
+type TvReceiversResponse implements BaseResponse {
+  message: String!
+
+  result: TvReceivers
+
+  statusCode: Int!
+}
+
+input TvReceiverUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type TvResolution {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input TvResolutionCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input TvResolutionInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type TvResolutionResponse implements BaseResponse {
+  message: String!
+
+  result: TvResolution
+
+  statusCode: Int!
+}
+
+type TvResolutions {
+  count: Int
+
+  tvResolutions: [TvResolution]
+}
+
+type TvResolutionsResponse implements BaseResponse {
+  message: String!
+
+  result: TvResolutions
+
+  statusCode: Int!
+}
+
+input TvResolutionUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type TypeOfJuicer {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input TypeOfJuicerCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input TypeOfJuicerInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type TypeOfJuicerResponse implements BaseResponse {
+  message: String!
+
+  result: TypeOfJuicer
+
+  statusCode: Int!
+}
+
+type TypeOfJuicers {
+  count: Int
+
+  typeOfJuicers: [TypeOfJuicer]
+}
+
+type TypeOfJuicersResponse implements BaseResponse {
+  message: String!
+
+  result: TypeOfJuicers
+
+  statusCode: Int!
+}
+
+input TypeOfJuicerUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+input updateCategoryCreateInput {
+  attributeSetUid: String
+
+  bnName: String
+
+  enName: String
+
+  image: AvatarInput
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type UpdatedBy {
+  name: String
+
+  uid: String
+
+  userType: String
+}
+
+type Upload {
+  name: String
+
+  url: String
+}
+
+type UploadResponse implements BaseResponse {
+  message: String!
+
+  result: Upload
+
+  statusCode: Int!
+}
+
+scalar URL
+
+enum UserType {
+  CLIENT
+
+  OPERATOR
+}
+
+type VideoCaptureResolution {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input VideoCaptureResolutionCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input VideoCaptureResolutionInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type VideoCaptureResolutionResponse implements BaseResponse {
+  message: String!
+
+  result: VideoCaptureResolution
+
+  statusCode: Int!
+}
+
+type VideoCaptureResolutions {
+  count: Int
+
+  videoCaptureResolutions: [VideoCaptureResolution]
+}
+
+type VideoCaptureResolutionsResponse implements BaseResponse {
+  message: String!
+
+  result: VideoCaptureResolutions
+
+  statusCode: Int!
+}
+
+input VideoCaptureResolutionUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type WarrantyPeriod {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input WarrantyPeriodCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input WarrantyPeriodInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type WarrantyPeriodResponse implements BaseResponse {
+  message: String!
+
+  result: WarrantyPeriod
+
+  statusCode: Int!
+}
+
+type WarrantyPeriods {
+  count: Int
+
+  warrantyPeriods: [WarrantyPeriod]
+}
+
+type WarrantyPeriodsResponse implements BaseResponse {
+  message: String!
+
+  result: WarrantyPeriods
+
+  statusCode: Int!
+}
+
+input WarrantyPeriodUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type WarrantyType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input WarrantyTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input WarrantyTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type WarrantyTypeResponse implements BaseResponse {
+  message: String!
+
+  result: WarrantyType
+
+  statusCode: Int!
+}
+
+type WarrantyTypes {
+  count: Int
+
+  warrantyTypes: [WarrantyType]
+}
+
+type WarrantyTypesResponse implements BaseResponse {
+  message: String!
+
+  result: WarrantyTypes
+
+  statusCode: Int!
+}
+
+input WarrantyTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type WearingType {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input WearingTypeCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input WearingTypeInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type WearingTypeResponse implements BaseResponse {
+  message: String!
+
+  result: WearingType
+
+  statusCode: Int!
+}
+
+type WearingTypes {
+  count: Int
+
+  wearingTypes: [WearingType]
+}
+
+type WearingTypesResponse implements BaseResponse {
+  message: String!
+
+  result: WearingTypes
+
+  statusCode: Int!
+}
+
+input WearingTypeUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+type WirelessConnectivities {
+  count: Int
+
+  wirelessConnectivities: [WirelessConnectivity]
+}
+
+type WirelessConnectivitiesResponse implements BaseResponse {
+  message: String!
+
+  result: WirelessConnectivities
+
+  statusCode: Int!
+}
+
+type WirelessConnectivity {
+  bnName: String
+
+  createdAt: DateTime
+
+  createdBy: CreatedBy
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+
+  uid: String
+
+  updatedAt: DateTime
+
+  updatedBy: UpdatedBy
+}
+
+input WirelessConnectivityCreateInput {
+  bnName: String
+
+  enName: String
+}
+
+input WirelessConnectivityInputFilter {
+  bnName: String
+
+  enName: String
+
+  isActive: Boolean
+
+  name: String
+
+  uid: String
+}
+
+type WirelessConnectivityResponse implements BaseResponse {
+  message: String!
+
+  result: WirelessConnectivity
+
+  statusCode: Int!
+}
+
+input WirelessConnectivityUpdateInput {
+  bnName: String
+
+  enName: String
+
+  inActiveNote: String
+
+  isActive: Boolean
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
