@@ -11,16 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.backdoor.walcartandroidtest.R;
+import com.example.GetCategoriesListQuery;
 
 import java.util.List;
 
 
 public class CategorySubCatRecyclerAdapter extends RecyclerView.Adapter<CategorySubCatRecyclerAdapter.MyViewHolder> {
 
-    private List<CategoryRootCat_Data> contact;
+    private List<GetCategoriesListQuery.Category> contact;
     private Context mContext;
 
-    public CategorySubCatRecyclerAdapter(List<CategoryRootCat_Data> contacts, Context context) {
+    public CategorySubCatRecyclerAdapter(List<GetCategoriesListQuery.Category> contacts, Context context) {
         this.contact = contacts;
         this.mContext = context;
     }
@@ -63,7 +64,7 @@ public class CategorySubCatRecyclerAdapter extends RecyclerView.Adapter<Category
 
 
     @SuppressLint("NotifyDataSetChanged")
-    public void notifyChangeData(List<CategoryRootCat_Data> dataList) {
+    public void notifyChangeData(List<GetCategoriesListQuery.Category> dataList) {
         contact = dataList;
         notifyDataSetChanged();
     }
