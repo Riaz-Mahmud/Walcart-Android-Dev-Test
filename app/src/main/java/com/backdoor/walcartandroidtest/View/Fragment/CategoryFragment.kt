@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.apollographql.apollo3.ApolloClient
 import com.backdoor.walcartandroidtest.Model.CategoryRepository
+import com.backdoor.walcartandroidtest.Model.ApiClient
 import com.backdoor.walcartandroidtest.R
-import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.*
+import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategoryRootCatRecyclerAdapter
+import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategorySubCatRecyclerAdapter
 import com.backdoor.walcartandroidtest.databinding.FragmentCategoryBinding
 import com.backdoor.walcartandroidtest.viewModel.CategoryViewModel
+import com.backdoor.walcartandroidtest.viewModel.CategoryViewModelFactory
 import com.example.GetCategoriesListQuery
 
 class CategoryFragment : Fragment() {
@@ -29,25 +32,23 @@ class CategoryFragment : Fragment() {
     private var rootCatAdapter: CategoryRootCatRecyclerAdapter? = null
     private var subCatAdapter: CategorySubCatRecyclerAdapter? = null
     private val rootCatDataList: List<GetCategoriesListQuery.Category>? = null
+    private val subCatDataList: List<GetCategoriesListQuery.Parent1?>? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
 
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_category, container, false)
         val v = binding.root
 
-        val apolloClient =
-            ApolloClient.Builder().serverUrl("https://devapiv2.walcart.com/graphql").build()
-        val mainRepository = CategoryRepository(apolloClient)
+        val apolloClient = ApolloClient.Builder().serverUrl(ApiClient.BASE_URL).build()
+        val catRepository = CategoryRepository(apolloClient)
 
         val viewModel: CategoryViewModel = ViewModelProvider(
-            this,
-            MyViewModelFactory(mainRepository)
+            this, CategoryViewModelFactory(activity, catRepository)
         )[CategoryViewModel::class.java]
-        viewModel.setActivity(activity)
+
         binding.catViewModel = viewModel
         binding.lifecycleOwner = this
 
@@ -58,12 +59,23 @@ class CategoryFragment : Fragment() {
         viewModel.categoriesList.observe(viewLifecycleOwner) {
             Log.d("ResultCat", "Result: $it");
             val adapter = it?.let { it1 ->
-                CategoryRootCatRecyclerAdapter(requireContext(), it1)
+                CategoryRootCatRecyclerAdapter(requireContext(),
+                    it1,
+                    object : CategoryRootCatRecyclerAdapter.OnItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            val subCatAdapter = it1[position].parents?.let { it2 ->
+                                CategorySubCatRecyclerAdapter(
+                                    requireContext(), it2
+                                )
+                            }
+                            recyclerViewSubCat!!.adapter = subCatAdapter
+                        }
+                    })
             }
             rootCatRecyclerView!!.adapter = adapter
         }
 
-        return v;
+        return v
     }
 
     private fun recyclerViewInit() {
@@ -71,13 +83,17 @@ class CategoryFragment : Fragment() {
         rootCatRecyclerView = binding.recyclerView
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(activity, 1)
         rootCatRecyclerView!!.layoutManager = layoutManager
-        rootCatAdapter = CategoryRootCatRecyclerAdapter(requireContext(),rootCatDataList)
+        rootCatAdapter = CategoryRootCatRecyclerAdapter(requireContext(),
+            rootCatDataList,
+            object : CategoryRootCatRecyclerAdapter.OnItemClickListener {
+                override fun onItemClick(position: Int) {}
+            })
         rootCatRecyclerView!!.adapter = rootCatAdapter
 
         recyclerViewSubCat = binding.recyclerViewSubCat
         val layoutManager1: RecyclerView.LayoutManager = LinearLayoutManager(activity)
         recyclerViewSubCat!!.layoutManager = layoutManager1
-        subCatAdapter = CategorySubCatRecyclerAdapter(rootCatDataList, context);
+        subCatAdapter = subCatDataList?.let { CategorySubCatRecyclerAdapter(requireContext(), it) }
         recyclerViewSubCat!!.adapter = subCatAdapter
 
     }

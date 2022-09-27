@@ -17,4 +17,7 @@
     <string name="root_category_img">Root Category img</string>
     <string name="camera">Camera</string>
     <string name="toys_amp_games"><![CDATA[Toys & Games]]></string>
+    <string name="shirt">Shirt</string>
+    <string name="traditional">Traditional</string>
+    <string name="pants">Pants</string>
 </resources>

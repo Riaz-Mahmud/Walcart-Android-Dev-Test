@@ -12,17 +12,12 @@ import com.example.GetCategoriesListQuery
 import kotlinx.coroutines.launch
 
 @SuppressLint("StaticFieldLeak")
-class CategoryViewModel constructor(private val catRepository: CategoryRepository) : ViewModel() {
+class CategoryViewModel constructor(private var activity: FragmentActivity?, private val catRepository: CategoryRepository) : ViewModel() {
 
-    private var activity: Activity? = null
     val categoriesList = MutableLiveData<List<GetCategoriesListQuery.Category>?>()
 
     fun onBackBtnPress() {
         activity!!.onBackPressed()
-    }
-
-    fun setActivity(activity: FragmentActivity?) {
-        this.activity = activity
     }
 
     fun getAllCategories() {
