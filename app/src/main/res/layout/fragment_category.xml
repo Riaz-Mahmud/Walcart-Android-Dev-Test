@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="catViewModel"
+            type="com.backdoor.walcartandroidtest.viewModel.CategoryViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_blue"
+        tools:context=".View.Fragment.CategoryFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pageHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="0dp"
+                android:visibility="visible"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/bg_color"
+                        tools:ignore="UselessParent">
+
+                        <ImageView
+                            android:id="@+id/backBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:contentDescription="@string/back_arrow"
+                            android:onClick="@{()->catViewModel.onBackBtnPress()}"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="15dp"
+                            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+                            app:tint="@color/buttonColor" />
+
+                        <TextView
+                            android:id="@+id/searchResultTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_toEndOf="@+id/backBtn"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/browse_category"
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/category_root_item"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/pageHeader"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:background="@color/bg_category"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="-1dp"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="vertical"
+                    android:visibility="visible">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/pageHeader"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/category_root_item"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSubCat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="vertical"
+                    android:visibility="visible">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+</layout>
