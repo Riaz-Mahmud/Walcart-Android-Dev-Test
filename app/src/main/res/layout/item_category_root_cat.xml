@@ -29,7 +29,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/root_category_img"
-            android:src="@drawable/icons_home_48_xhdpi"
+            android:src="@drawable/icons_no_image_50"
             app:tint="@color/navNormalColor" />
 
         <TextView
