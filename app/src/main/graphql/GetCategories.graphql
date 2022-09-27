@@ -1,0 +1,31 @@
+query getCategoriesList{
+    getCategories(pagination: { limit: 100, skip: 0 }) {
+        result {
+            categories {
+                uid
+                enName
+                bnName
+                parent {
+                    uid
+                    enName
+                    bnName
+                }
+                parents {
+                    uid
+                    enName
+                    bnName
+                }
+                image {
+                    name
+                    url
+                    signedUrl
+                }
+                attributeSetUid
+                isActive
+                inActiveNote
+                createdAt
+                updatedAt
+            }
+        }
+    }
+}
