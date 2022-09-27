@@ -10,6 +10,7 @@ import com.backdoor.walcartandroidtest.R
 import com.backdoor.walcartandroidtest.View.Fragment.*
 import com.backdoor.walcartandroidtest.databinding.ActivityMainBinding
 import com.backdoor.walcartandroidtest.viewModel.MainViewModel
+import com.backdoor.walcartandroidtest.viewModel.MainViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        viewModel.setActivity(this)
+        viewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(this)
+        )[MainViewModel::class.java]
         binding.mainViewModel = viewModel
         binding.lifecycleOwner = this
         setContentView(binding.root)

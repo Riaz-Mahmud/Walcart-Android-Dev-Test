@@ -17,7 +17,8 @@ import com.squareup.picasso.Picasso
 
 class CategoryRootCatRecyclerAdapter(
     private val mContext: Context,
-    private var contact: List<GetCategoriesListQuery.Category>?
+    private var contact: List<GetCategoriesListQuery.Category>?,
+    private val mListener: OnItemClickListener?
 ) : RecyclerView.Adapter<CategoryRootCatRecyclerAdapter.MyViewHolder>() {
     private var catSelectedPosition = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -50,6 +51,7 @@ class CategoryRootCatRecyclerAdapter(
             }
             holder.parentLayout.setOnClickListener { view: View? ->
                 Log.d("CategoryRootCat", "cat clicked")
+                mListener?.onItemClick(position)
                 checkSelected()
                 catSelectedPosition = holder.adapterPosition
                 holder.img.imageTintList = ColorStateList.valueOf(
@@ -85,6 +87,10 @@ class CategoryRootCatRecyclerAdapter(
             holder.view1.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
             holder.view2.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick( position: Int)
     }
 
     private fun checkSelected() {

@@ -57,13 +57,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
+    //apollo
     implementation("com.apollographql.apollo3:apollo-runtime:3.6.0")
-    implementation("org.jetbrains:annotations:13.0")
-    testImplementation("org.jetbrains:annotations:13.0")
-
-    implementation("com.google.code.gson:gson:2.8.5")
-    implementation("com.squareup.retrofit2:retrofit:2.0.2")
-    implementation("com.squareup.retrofit2:converter-gson:2.0.2")
 
     //live Data
     implementation("android.arch.lifecycle:extensions:1.1.1")
@@ -71,24 +66,23 @@ dependencies {
 
     // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.5.0")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.5.1")
 
     //ImageLoadFromUrl
     implementation("com.squareup.picasso:picasso:2.71828")
 
     //Room Database
-    implementation("androidx.room:room-runtime:2.4.3")
-    annotationProcessor("androidx.room:room-compiler:2.4.3")
+    val room_version = "2.4.3"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 
     val nav_version = "2.5.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
-    // Jetpack Compose Integration
-    implementation("androidx.navigation:navigation-compose:$nav_version")
 
-    //workManager
-    implementation("androidx.work:work-runtime:2.7.1")
 
 }
 apollo {
