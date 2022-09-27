@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("kotlin-kapt")
     id("kotlin-android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.apollographql.apollo3").version("3.6.0")
@@ -35,6 +36,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding = true
         viewBinding = true
     }
 }
@@ -62,6 +64,31 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.5")
     implementation("com.squareup.retrofit2:retrofit:2.0.2")
     implementation("com.squareup.retrofit2:converter-gson:2.0.2")
+
+    //live Data
+    implementation("android.arch.lifecycle:extensions:1.1.1")
+    annotationProcessor("android.arch.lifecycle:compiler:1.1.1")
+
+    // Lifecycle components
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.5.0")
+
+    //ImageLoadFromUrl
+    implementation("com.squareup.picasso:picasso:2.71828")
+
+    //Room Database
+    implementation("androidx.room:room-runtime:2.4.3")
+    annotationProcessor("androidx.room:room-compiler:2.4.3")
+
+    val nav_version = "2.5.2"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // Jetpack Compose Integration
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    //workManager
+    implementation("androidx.work:work-runtime:2.7.1")
 
 }
 apollo {

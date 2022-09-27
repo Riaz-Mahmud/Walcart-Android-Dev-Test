@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Walcart Android Developer Test</string>
+    <string name="home">Home</string>
+    <string name="category">Category</string>
+    <string name="cart">Cart</string>
+    <string name="favourite">Favourite</string>
+    <string name="account">Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cart_fragment">Cart Fragment</string>
+    <string name="account_fragment">Account Fragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="favourite_fragment">Favourite Fragment</string>
+    <string name="browse_category">Browse Category</string>
+    <string name="todo">TODO</string>
+    <string name="back_arrow">Back Arrow</string>
+    <string name="root_category_img">Root Category img</string>
+    <string name="camera">Camera</string>
+    <string name="toys_amp_games"><![CDATA[Toys & Games]]></string>
 </resources>
