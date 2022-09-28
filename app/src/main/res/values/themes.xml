@@ -14,13 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="IntroTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/white</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
 
-    <style name="DefaultTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="DefaultTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bg_blue</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>

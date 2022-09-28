@@ -3,9 +3,7 @@ package com.backdoor.walcartandroidtest.Model
 import android.util.Log
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
-import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDao
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDataEntity
-import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDatabase
 import com.backdoor.walcartandroidtest.View.Activity.MainActivity
 import com.example.GetCategoriesListQuery
 
@@ -25,14 +23,14 @@ class CategoryRepository constructor(private val apolloClient: ApolloClient) {
 
     private fun saveRoomDB(launches: List<GetCategoriesListQuery.Category>?) {
 
-        val catDao = MainActivity().database
+        val catDao = MainActivity().categoryDao
 
         val insertThread = Thread {
             if (launches != null) {
                 for (item in launches){
                     catDao?.data_insert(
                         CategoryDataEntity(
-                            item.uid.toString(), item.enName, item.bnName, item.attributeSetUid,
+                             item.uid.toString(), item.enName, item.bnName, item.attributeSetUid,
                             item.isActive, item.inActiveNote
                         )
                     )

@@ -1,8 +1,8 @@
 package com.backdoor.walcartandroidtest.viewModel
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +12,10 @@ import com.example.GetCategoriesListQuery
 import kotlinx.coroutines.launch
 
 @SuppressLint("StaticFieldLeak")
-class CategoryViewModel constructor(private var activity: FragmentActivity?, private val catRepository: CategoryRepository) : ViewModel() {
+class CategoryViewModel constructor(
+    private var activity: FragmentActivity?,
+    private val catRepository: CategoryRepository
+) : ViewModel() {
 
     val categoriesList = MutableLiveData<List<GetCategoriesListQuery.Category>?>()
 

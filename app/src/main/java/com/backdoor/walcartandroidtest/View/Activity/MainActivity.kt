@@ -1,15 +1,12 @@
 package com.backdoor.walcartandroidtest.View.Activity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.room.Dao
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDao
-import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDataEntity
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDatabase
 import com.backdoor.walcartandroidtest.R
 import com.backdoor.walcartandroidtest.View.Fragment.*
@@ -26,9 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var homeFragment: HomeFragment? = null
     private var id = 0
 
-    var datalist: List<CategoryDataEntity>? = null
-
-    var database: CategoryDao? = null
+    var categoryDao: CategoryDao? = null
 
     private lateinit var viewModel: MainViewModel
 
@@ -51,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
 
-        database = CategoryDatabase.getDatabase(application).getDao()
+        categoryDao = CategoryDatabase.getDatabase(application).getDao()
 
         navigationView = binding.bottomNavigationView;
         homeFragment = HomeFragment()
