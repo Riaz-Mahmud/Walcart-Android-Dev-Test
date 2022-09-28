@@ -26,12 +26,22 @@
         android:padding="15dp"
         tools:ignore="UseCompoundDrawables">
 
+        <ProgressBar
+            android:id="@+id/item_category_root_cat_progress_bar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/item_category_root_cat_img"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/root_category_img"
             android:src="@drawable/icons_no_image_50"
+            android:visibility="gone"
             app:tint="@color/navNormalColor" />
 
         <TextView

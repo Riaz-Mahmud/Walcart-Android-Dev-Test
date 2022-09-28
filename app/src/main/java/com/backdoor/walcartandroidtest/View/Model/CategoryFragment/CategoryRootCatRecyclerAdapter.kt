@@ -1,18 +1,16 @@
 package com.backdoor.walcartandroidtest.View.Model.CategoryFragment
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.backdoor.walcartandroidtest.R
+import com.backdoor.walcartandroidtest.databinding.ItemCategoryRootCatBinding
 import com.example.GetCategoriesListQuery
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class CategoryRootCatRecyclerAdapter(
@@ -22,15 +20,15 @@ class CategoryRootCatRecyclerAdapter(
 ) : RecyclerView.Adapter<CategoryRootCatRecyclerAdapter.MyViewHolder>() {
     private var catSelectedPosition = -1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_category_root_cat, parent, false)
-        return MyViewHolder(view)
+        val binding =
+            ItemCategoryRootCatBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         try {
 
-            holder.tittle.text = contact?.get(position)?.enName ?: ""
+            holder.binding.itemCategoryRootCatText.text = contact?.get(position)?.enName ?: ""
 
             val imageUrl = contact?.get(position)?.image?.url
 
@@ -38,32 +36,45 @@ class CategoryRootCatRecyclerAdapter(
                 Picasso.get()
                     .load(imageUrl.toString())
                     .error(R.drawable.icons_no_image_50)
-                    .into(holder.img)
+                    .into(holder.binding.itemCategoryRootCatImg, object : Callback {
+                        override fun onSuccess() {
+                            holder.binding.itemCategoryRootCatProgressBar.visibility = View.GONE
+                            holder.binding.itemCategoryRootCatImg.visibility = View.VISIBLE
+                        }
+
+                        override fun onError(ex: java.lang.Exception) {
+                            holder.binding.itemCategoryRootCatProgressBar.visibility = View.GONE
+                            holder.binding.itemCategoryRootCatImg.visibility = View.VISIBLE
+                            holder.binding.itemCategoryRootCatImg.setImageResource(R.drawable.icons_no_image_50)
+                        }
+                    })
             } else {
-                holder.img.setImageResource(R.drawable.icons_no_image_50)
+                holder.binding.itemCategoryRootCatProgressBar.visibility = View.GONE
+                holder.binding.itemCategoryRootCatImg.visibility = View.VISIBLE
+                holder.binding.itemCategoryRootCatImg.setImageResource(R.drawable.icons_no_image_50)
             }
 
             if (position == 0) {
-                holder.view1.visibility = View.GONE
+                holder.binding.itemCategoryRootCatView1.visibility = View.GONE
             }
             if (position == itemCount) {
-                holder.view2.visibility = View.GONE
+                holder.binding.itemCategoryRootCatView2.visibility = View.GONE
             }
-            holder.parentLayout.setOnClickListener { view: View? ->
+            holder.binding.itemCategoryRootCatLayout.setOnClickListener {
                 Log.d("CategoryRootCat", "cat clicked")
                 mListener?.onItemClick(position)
                 checkSelected()
                 catSelectedPosition = holder.adapterPosition
-                holder.img.imageTintList = ColorStateList.valueOf(
+                holder.binding.itemCategoryRootCatImg.imageTintList = ColorStateList.valueOf(
                     mContext.resources.getColor(R.color.catSelectedColor)
                 )
-                holder.tittle.setTextColor(
+                holder.binding.itemCategoryRootCatText.setTextColor(
                     mContext.resources.getColor(R.color.catSelectedColor)
                 )
-                holder.view1.setBackgroundColor(
+                holder.binding.itemCategoryRootCatView1.setBackgroundColor(
                     mContext.resources.getColor(R.color.catSelectedColor)
                 )
-                holder.view2.setBackgroundColor(
+                holder.binding.itemCategoryRootCatView2.setBackgroundColor(
                     mContext.resources.getColor(R.color.catSelectedColor)
                 )
             }
@@ -75,22 +86,22 @@ class CategoryRootCatRecyclerAdapter(
 
     private fun itemUpdateChangeBG(holder: MyViewHolder, position: Int) {
         if (position == catSelectedPosition) {
-            holder.img.imageTintList =
+            holder.binding.itemCategoryRootCatImg.imageTintList =
                 ColorStateList.valueOf(mContext.resources.getColor(R.color.catSelectedColor))
-            holder.tittle.setTextColor(mContext.resources.getColor(R.color.catSelectedColor))
-            holder.view1.setBackgroundColor(mContext.resources.getColor(R.color.catSelectedColor))
-            holder.view2.setBackgroundColor(mContext.resources.getColor(R.color.catSelectedColor))
+            holder.binding.itemCategoryRootCatText.setTextColor(mContext.resources.getColor(R.color.catSelectedColor))
+            holder.binding.itemCategoryRootCatView1.setBackgroundColor(mContext.resources.getColor(R.color.catSelectedColor))
+            holder.binding.itemCategoryRootCatView2.setBackgroundColor(mContext.resources.getColor(R.color.catSelectedColor))
         } else {
-            holder.img.imageTintList =
+            holder.binding.itemCategoryRootCatImg.imageTintList =
                 ColorStateList.valueOf(mContext.resources.getColor(R.color.navNormalColor))
-            holder.tittle.setTextColor(mContext.resources.getColor(R.color.secondaryTextColor))
-            holder.view1.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
-            holder.view2.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
+            holder.binding.itemCategoryRootCatText.setTextColor(mContext.resources.getColor(R.color.secondaryTextColor))
+            holder.binding.itemCategoryRootCatView1.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
+            holder.binding.itemCategoryRootCatView2.setBackgroundColor(mContext.resources.getColor(R.color.secondaryTextColor))
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick( position: Int)
+        fun onItemClick(position: Int)
     }
 
     private fun checkSelected() {
@@ -109,25 +120,7 @@ class CategoryRootCatRecyclerAdapter(
         }
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tittle: TextView
-        var img: ImageView
-        var parentLayout: LinearLayout
-        var view1: View
-        var view2: View
+    class MyViewHolder(val binding: ItemCategoryRootCatBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-        init {
-            parentLayout = itemView.findViewById(R.id.item_category_root_cat_layout)
-            img = itemView.findViewById(R.id.item_category_root_cat_img)
-            tittle = itemView.findViewById(R.id.item_category_root_cat_text)
-            view1 = itemView.findViewById(R.id.item_category_root_cat_view1)
-            view2 = itemView.findViewById(R.id.item_category_root_cat_view2)
-        }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun notifyChangeData(dataList: List<GetCategoriesListQuery.Category>?) {
-        contact = dataList
-        notifyDataSetChanged()
-    }
 }
