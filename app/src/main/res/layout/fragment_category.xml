@@ -70,7 +70,7 @@
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginTop="0dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginEnd="0dp"
                             android:layout_toEndOf="@+id/backBtn"
                             android:ellipsize="end"
                             android:fontFamily="@font/roboto"
@@ -80,6 +80,7 @@
                             android:textColor="@color/textColor"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
 
                     </RelativeLayout>
 
@@ -95,9 +96,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="0dp"
-                android:background="@color/bg_category"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="-1dp"
+                android:background="@color/bg_category"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView

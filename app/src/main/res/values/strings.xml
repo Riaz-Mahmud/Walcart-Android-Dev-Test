@@ -20,4 +20,5 @@
     <string name="shirt">Shirt</string>
     <string name="traditional">Traditional</string>
     <string name="pants">Pants</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>
