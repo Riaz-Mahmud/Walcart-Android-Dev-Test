@@ -6,12 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.backdoor.walcartandroidtest.Model.CategoryDao
+import com.backdoor.walcartandroidtest.Model.CategoryDataEntity
+import com.backdoor.walcartandroidtest.Model.CategoryDatabase
 import com.backdoor.walcartandroidtest.R
 import com.backdoor.walcartandroidtest.View.Fragment.*
 import com.backdoor.walcartandroidtest.databinding.ActivityMainBinding
 import com.backdoor.walcartandroidtest.viewModel.MainViewModel
 import com.backdoor.walcartandroidtest.viewModel.MainViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private var navigationView: BottomNavigationView? = null
     private var homeFragment: HomeFragment? = null
     private var id = 0
+
+    var database : CategoryDao? = null
 
     private lateinit var viewModel: MainViewModel
 
@@ -38,10 +44,12 @@ class MainActivity : AppCompatActivity() {
         viewModel.checkNightMode()
 
         init()
-
     }
 
     private fun init() {
+
+        database = CategoryDatabase.getDatabase(application).getDao()
+
         navigationView = binding.bottomNavigationView;
         homeFragment = HomeFragment()
         val categoryFragment = CategoryFragment()

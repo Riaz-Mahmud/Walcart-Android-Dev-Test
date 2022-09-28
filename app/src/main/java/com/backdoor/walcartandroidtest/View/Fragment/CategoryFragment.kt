@@ -15,6 +15,7 @@ import com.apollographql.apollo3.ApolloClient
 import com.backdoor.walcartandroidtest.Model.CategoryRepository
 import com.backdoor.walcartandroidtest.Model.ApiClient
 import com.backdoor.walcartandroidtest.R
+import com.backdoor.walcartandroidtest.View.Activity.MainActivity
 import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategoryRootCatRecyclerAdapter
 import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategorySubCatRecyclerAdapter
 import com.backdoor.walcartandroidtest.databinding.FragmentCategoryBinding
