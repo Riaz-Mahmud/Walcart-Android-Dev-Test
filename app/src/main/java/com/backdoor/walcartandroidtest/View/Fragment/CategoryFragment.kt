@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.apollographql.apollo3.ApolloClient
-import com.backdoor.walcartandroidtest.Model.CategoryRepository
 import com.backdoor.walcartandroidtest.Model.ApiClient
+import com.backdoor.walcartandroidtest.Model.CategoryRepository
 import com.backdoor.walcartandroidtest.R
-import com.backdoor.walcartandroidtest.View.Activity.MainActivity
 import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategoryRootCatRecyclerAdapter
 import com.backdoor.walcartandroidtest.View.Model.CategoryFragment.CategorySubCatRecyclerAdapter
 import com.backdoor.walcartandroidtest.databinding.FragmentCategoryBinding
@@ -84,18 +83,10 @@ class CategoryFragment : Fragment() {
         rootCatRecyclerView = binding.recyclerView
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(activity, 1)
         rootCatRecyclerView!!.layoutManager = layoutManager
-        rootCatAdapter = CategoryRootCatRecyclerAdapter(requireContext(),
-            rootCatDataList,
-            object : CategoryRootCatRecyclerAdapter.OnItemClickListener {
-                override fun onItemClick(position: Int) {}
-            })
-        rootCatRecyclerView!!.adapter = rootCatAdapter
 
         recyclerViewSubCat = binding.recyclerViewSubCat
         val layoutManager1: RecyclerView.LayoutManager = LinearLayoutManager(activity)
         recyclerViewSubCat!!.layoutManager = layoutManager1
-        subCatAdapter = subCatDataList?.let { CategorySubCatRecyclerAdapter(requireContext(), it) }
-        recyclerViewSubCat!!.adapter = subCatAdapter
 
     }
 

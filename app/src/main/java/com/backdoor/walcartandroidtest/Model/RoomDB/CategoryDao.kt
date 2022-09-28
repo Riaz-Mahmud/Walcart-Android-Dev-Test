@@ -9,9 +9,9 @@ import androidx.room.Query
 interface CategoryDao {
 
     @Insert
-    fun data_insert(data : CategoryDataEntity)
+    fun data_insert(vararg data : CategoryDataEntity)
 
-    @Query("SELECT * FROM category_table ORDER BY uid")
+    @Query("SELECT * FROM category_table")
     fun get_all_category(): List<CategoryDataEntity>
 
     @Delete
