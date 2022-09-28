@@ -1,4 +1,4 @@
-package com.backdoor.walcartandroidtest.Model
+package com.backdoor.walcartandroidtest.Model.RoomDB
 
 import androidx.room.Dao
 import androidx.room.Delete
