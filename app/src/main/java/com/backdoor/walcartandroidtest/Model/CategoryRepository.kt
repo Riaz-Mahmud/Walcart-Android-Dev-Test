@@ -1,9 +1,9 @@
 package com.backdoor.walcartandroidtest.Model
 
 import android.util.Log
-import androidx.annotation.WorkerThread
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
+import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDataEntity
 import com.backdoor.walcartandroidtest.View.Activity.MainActivity
 import com.example.GetCategoriesListQuery
 

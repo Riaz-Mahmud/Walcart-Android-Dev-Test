@@ -1,4 +1,4 @@
-package com.backdoor.walcartandroidtest.Model
+package com.backdoor.walcartandroidtest.Model.RoomDB
 
 import android.content.Context
 import androidx.room.Database
@@ -13,7 +13,7 @@ abstract class CategoryDatabase : RoomDatabase(){
     companion object{
         private var INSTANCE : CategoryDatabase? = null
 
-        fun getDatabase(context : Context) : CategoryDatabase{
+        fun getDatabase(context : Context) : CategoryDatabase {
             var tempInstance : CategoryDatabase? = INSTANCE
 
             if (tempInstance != null){

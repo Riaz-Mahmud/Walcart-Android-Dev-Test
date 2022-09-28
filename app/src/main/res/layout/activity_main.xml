@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="mainViewModel"
             type="com.backdoor.walcartandroidtest.viewModel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_activity_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_color"

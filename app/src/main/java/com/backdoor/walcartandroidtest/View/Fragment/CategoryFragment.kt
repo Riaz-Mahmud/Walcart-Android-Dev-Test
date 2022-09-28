@@ -43,7 +43,7 @@ class CategoryFragment : Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_category, container, false)
         val v = binding.root
 
-        val apolloClient = ApolloClient.Builder().serverUrl(ApiClient.BASE_URL).build()
+        val apolloClient = ApolloClient.Builder().serverUrl(ApiClient().BASE_URL).build()
         val catRepository = CategoryRepository(apolloClient)
 
         val viewModel: CategoryViewModel = ViewModelProvider(
