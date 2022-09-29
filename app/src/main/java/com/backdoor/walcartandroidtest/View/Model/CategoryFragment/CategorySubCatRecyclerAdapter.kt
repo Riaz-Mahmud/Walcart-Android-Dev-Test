@@ -28,7 +28,7 @@ class CategorySubCatRecyclerAdapter(
 
             holder.binding.itemCategorySubCatTitle.text = contact[position]?.enName ?: ""
 
-            holder.binding.itemCategorySubCatTitleIcon.setOnClickListener {
+            holder.binding.itemCategorySubCatLayout.setOnClickListener {
                 if (holder.binding.itemCategorySubCatDetails.visibility == View.GONE){
                     holder.binding.itemCategorySubCatDetails.visibility = View.VISIBLE
                     holder.binding.itemCategorySubCatTitleIcon.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)

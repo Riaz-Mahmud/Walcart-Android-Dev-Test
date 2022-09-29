@@ -7,16 +7,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDao
-import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDataEntity
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDatabase
 import com.backdoor.walcartandroidtest.R
 import com.backdoor.walcartandroidtest.View.Fragment.*
+import com.backdoor.walcartandroidtest.View.Model.PerfConfig
 import com.backdoor.walcartandroidtest.databinding.ActivityMainBinding
 import com.backdoor.walcartandroidtest.viewModel.MainViewModel
 import com.backdoor.walcartandroidtest.viewModel.MainViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 

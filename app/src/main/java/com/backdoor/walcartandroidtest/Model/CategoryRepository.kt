@@ -18,9 +18,13 @@ class CategoryRepository constructor(private val apolloClient: ApolloClient) {
             Log.d("LaunchList", "Failure", e)
             null
         }
-        val launches = response?.data?.getCategories?.result?.categories?.filterNotNull()
-        saveRoomDB(launches)
-        return launches
+
+        if (response?.data?.getCategories?.statusCode == 200) {
+            val launches = response.data?.getCategories?.result?.categories?.filterNotNull()
+            saveRoomDB(launches)
+            return launches
+        }
+        return null
     }
 
     private fun saveRoomDB(launches: List<GetCategoriesListQuery.Category>?) {

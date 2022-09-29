@@ -1,5 +1,7 @@
 query getCategoriesList{
     getCategories(pagination: { limit: 100, skip: 0 }) {
+        message
+        statusCode
         result {
             categories {
                 uid

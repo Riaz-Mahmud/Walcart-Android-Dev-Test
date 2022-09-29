@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Walcart Android Developer Test</string>
+    <string name="app_name">Walcart</string>
     <string name="home">Home</string>
     <string name="category">Category</string>
     <string name="cart">Cart</string>
