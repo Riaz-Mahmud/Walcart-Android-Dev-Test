@@ -6,9 +6,11 @@ import com.apollographql.apollo3.exception.ApolloException
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDataEntity
 import com.backdoor.walcartandroidtest.View.Activity.MainActivity
 import com.example.GetCategoriesListQuery
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CategoryRepository constructor(private val apolloClient: ApolloClient) {
-    suspend fun getAllRootCat() : List<GetCategoriesListQuery.Category>? {
+    suspend fun getAllRootCat(): List<GetCategoriesListQuery.Category>? {
 
         val response = try {
             apolloClient.query(GetCategoriesListQuery()).execute()
@@ -25,20 +27,19 @@ class CategoryRepository constructor(private val apolloClient: ApolloClient) {
 
         val catDao = MainActivity().categoryDao
 
-        val insertThread = Thread {
+        GlobalScope.launch {
             if (launches != null) {
-                for (item in launches){
-                    catDao?.data_insert(
+                for (item in launches) {
+                    catDao?.insertCategory(
                         CategoryDataEntity(
-                             item.uid.toString(), item.enName, item.bnName, item.attributeSetUid,
-                            item.isActive, item.inActiveNote
+                            0, item.uid.toString(), item.enName, item.bnName, item.attributeSetUid,
+                            item.isActive.toString(), item.inActiveNote
                         )
                     )
-                    Log.d("RoomDBCat", "Data Store: "+ item.uid)
+                    Log.d("RoomDBCat", "Data Store: " + item.uid)
                 }
             }
         }
-        insertThread.start()
     }
 
 }

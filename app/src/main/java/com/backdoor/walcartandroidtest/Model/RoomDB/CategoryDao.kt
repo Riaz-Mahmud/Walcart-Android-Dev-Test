@@ -1,5 +1,6 @@
 package com.backdoor.walcartandroidtest.Model.RoomDB
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -9,11 +10,11 @@ import androidx.room.Query
 interface CategoryDao {
 
     @Insert
-    fun data_insert(data : CategoryDataEntity)
+    suspend fun insertCategory(data: CategoryDataEntity)
 
-    @Query("SELECT * FROM category_table")
-    fun get_all_category(): List<CategoryDataEntity>
+    @Query("SELECT * FROM category")
+    fun getAllCategory(): LiveData<List<CategoryDataEntity>>
 
     @Delete
-    fun delete(data: CategoryDataEntity)
+    suspend fun delete(data: CategoryDataEntity)
 }
