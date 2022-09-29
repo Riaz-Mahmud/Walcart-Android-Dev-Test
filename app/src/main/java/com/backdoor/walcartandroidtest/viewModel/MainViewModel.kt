@@ -14,9 +14,7 @@ class MainViewModel constructor(private var activity: Activity?) : ViewModel() {
 
     fun checkNightMode() {
         Log.d("dayNightMode", "Called")
-        val nightModeFlags =
-            activity!!.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        when (nightModeFlags) {
+        when (activity!!.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_YES -> {
                 Log.d("dayNightMode", "UI_MODE_NIGHT_YES")
                 activity!!.window.statusBarColor = ContextCompat.getColor(activity!!, R.color.black_status_bar)

@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "category_table")
+@Entity(tableName = "category")
 data class CategoryDataEntity(
 
     @PrimaryKey
+    val id: Long,
     @ColumnInfo(name = "uid")
     val uid: String,
     @ColumnInfo(name = "enName")
@@ -17,7 +18,7 @@ data class CategoryDataEntity(
     @ColumnInfo(name = "attributeSetUid")
     val attributeSetUid: String?,
     @ColumnInfo(name = "isActive")
-    val isActive: Boolean?,
+    val isActive: String?,
     @ColumnInfo(name = "inActiveNote")
     val inActiveNote: String?,
 

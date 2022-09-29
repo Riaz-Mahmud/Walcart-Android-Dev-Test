@@ -1,5 +1,6 @@
 package com.backdoor.walcartandroidtest.View.Model.CategoryFragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.Log
@@ -122,5 +123,11 @@ class CategoryRootCatRecyclerAdapter(
 
     class MyViewHolder(val binding: ItemCategoryRootCatBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun notifyChangeData(dataList: List<GetCategoriesListQuery.Category>?) {
+        contact = dataList
+        notifyDataSetChanged()
+    }
 
 }

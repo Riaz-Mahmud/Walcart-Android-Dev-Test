@@ -2,12 +2,18 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b9e34c8d22f57229e531fcc5197c65ca",
+    "identityHash": "18421a8947304285f939a2d5b94d617c",
     "entities": [
       {
-        "tableName": "category_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` TEXT NOT NULL, `enName` TEXT, `bnName` TEXT, `attributeSetUid` TEXT, `isActive` INTEGER, `inActiveNote` TEXT, PRIMARY KEY(`uid`))",
+        "tableName": "category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `uid` TEXT NOT NULL, `enName` TEXT, `bnName` TEXT, `attributeSetUid` TEXT, `isActive` TEXT, `inActiveNote` TEXT, PRIMARY KEY(`id`))",
         "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "uid",
             "columnName": "uid",
@@ -35,7 +41,7 @@
           {
             "fieldPath": "isActive",
             "columnName": "isActive",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": false
           },
           {
@@ -47,7 +53,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "uid"
+            "id"
           ],
           "autoGenerate": false
         },
@@ -58,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b9e34c8d22f57229e531fcc5197c65ca')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '18421a8947304285f939a2d5b94d617c')"
     ]
   }
 }

@@ -10,6 +10,7 @@ import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDao
 import com.backdoor.walcartandroidtest.Model.RoomDB.CategoryDatabase
 import com.backdoor.walcartandroidtest.R
 import com.backdoor.walcartandroidtest.View.Fragment.*
+import com.backdoor.walcartandroidtest.View.Model.PerfConfig
 import com.backdoor.walcartandroidtest.databinding.ActivityMainBinding
 import com.backdoor.walcartandroidtest.viewModel.MainViewModel
 import com.backdoor.walcartandroidtest.viewModel.MainViewModelFactory
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var id = 0
 
     var categoryDao: CategoryDao? = null
+    lateinit var database : CategoryDatabase
 
     private lateinit var viewModel: MainViewModel
 
@@ -42,6 +44,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.checkNightMode()
 
         init()
+
+        database = CategoryDatabase.getDatabase(this)
+
     }
 
     private fun init() {

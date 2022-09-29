@@ -9,13 +9,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 
 @Database(
-    entities = [CategoryDataEntity::class], version = CategoryDatabase.DBVERSION
+    entities = [CategoryDataEntity::class], version = 1
 )
 abstract class CategoryDatabase : RoomDatabase() {
 
     abstract fun getDao(): CategoryDao
 
     companion object {
+        @Volatile
         private var INSTANCE: CategoryDatabase? = null
 
         private const val DB_NAME = "walcat.db"
@@ -24,18 +25,16 @@ abstract class CategoryDatabase : RoomDatabase() {
         const val DBVERSION = 1 //<<<<<ADDED for logging
 
         fun getDatabase(context: Context): CategoryDatabase {
-            val tempInstance: CategoryDatabase? = INSTANCE
-
-            if (tempInstance != null) {
-                return tempInstance
+            if (INSTANCE == null) {
+                synchronized(this) {
+                    INSTANCE = Room.databaseBuilder(
+                        context.applicationContext,
+                        CategoryDatabase::class.java,
+                        DB_NAME
+                    ).build()
+                }
             }
-
-            synchronized(this) {
-                return Room.databaseBuilder(
-                    context, CategoryDatabase::class.java, DB_NAME
-                ).addCallback(dbCallback)
-                    .build()
-            }
+            return INSTANCE!!
         }
 
         object dbCallback : Callback() {
